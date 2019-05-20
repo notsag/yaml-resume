@@ -14,7 +14,8 @@ setup(
     packages=['yaml_resume'],
     description="YAML resume command line interface",
     long_description=README,
-    version='0.0.1',
+	long_description_content_type='text/markdown',
+    version='0.0.2',
     url='http://github.com/notsag/yaml-resume',
     author='Maxime GASTON',
     author_email='maxime@gaston.sh',
@@ -23,7 +24,7 @@ setup(
     install_requires=INSTALL_PACKAGES,
     entry_points={
             'console_scripts': [
-                        'yaml-resume = yaml_resume.resume:cli',
+                        'yaml-resume = yaml_resume.cli:cli',
                         ]
             },
     tests_require=[
