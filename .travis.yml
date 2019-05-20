@@ -11,3 +11,4 @@ install:
   - pip install .
 script:
   - flake8 yaml_resume
+  - python -m pytest

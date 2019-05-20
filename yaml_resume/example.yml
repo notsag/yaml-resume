@@ -1,0 +1,36 @@
+contact:
+  name: John Doe
+  job: Captain
+  phone: 0204060810
+  email: john@doe.com
+  location:
+    address: 100 Beverly Hills Boulevard
+    city: Beverly Hills
+    state: CA
+    zip: 90210
+    country: USA
+profiles:
+- network: Facebook
+  url: https://facebook.com/johndoe
+- network: Twitter
+  url: https://twitter.com/nottherealjohndoe
+work:
+- organisation: Starfleet
+  position: Captain
+  startdate: 2150-01-01
+  summary: I started commanding on the starship Enterprise, I fought Klingon ships ...
+- organisation: Verne Inc
+  position: First mate
+  startdate: January 1866
+  enddate: October 1867
+  summary: I served with Captain Nemo
+volunteer:
+- organisation: Captains without borders
+  position: Volunteer
+  startdate: January 1999 
+  startdate: December 2001 
+  summary: Did some stuff...
+education:
+skills:
+languages:
+interests:
