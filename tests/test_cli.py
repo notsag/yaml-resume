@@ -11,7 +11,7 @@ def test_init():
         cli,
         ['init', TESTFILE],
         input='John Doe\nCaptain\njohn@doe.com\n+33611111111\n' +
-              '10 Downing Street\nLondon,SW1A 2AA\n\nUK\n'
+              '10 Downing Street\nLondon\nSW1A 2AA\n\nUK\ny\n'
         )
     assert result.exit_code == 0
 

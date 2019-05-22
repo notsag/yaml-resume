@@ -7,4 +7,4 @@ class Resume(yaml.YAMLObject):
     yaml_tag = u'Resume'
 
     def __init__(self):
-        self.contact = Contact()
+        self.contact = Contact.ask_contact()
