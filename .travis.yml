@@ -6,8 +6,6 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install flake8
-  - pip install pytest-cov
-  - pip install codecov
   - pip install .
 script:
   - flake8 yaml_resume
