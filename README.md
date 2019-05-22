@@ -25,7 +25,7 @@ pip install yaml-resume
 Init a new resume through an interactive cli:
 
 ```
-yaml-resume init
+yaml-resume init FILENAME
 ```
 
 Validate your yaml resume:
@@ -34,6 +34,14 @@ Validate your yaml resume:
 yaml-resume validate FILENAME
 ```
 
+## Contributions
+
+Please have a look at the [contributing guide](https://github.com/notsag/yaml-resume/blob/master/CONTRIBUTING.md) and the [code of conduct](https://github.com/notsag/yaml-resume/blob/master/CODE_OF_CONDUCT.md).
+
 ## Credits
 
-This project was inspired by : [JSON Resume](https://github.com/jsonresume)
+This project was inspired by : [JSON Resume](https://github.com/jsonresume).
+
+Special thanks to all contributors of the following projects used by yaml-resume :
+ - [click](https://github.com/pallets/click/)
+ - [cerberus](https://github.com/pyeve/cerberus)
