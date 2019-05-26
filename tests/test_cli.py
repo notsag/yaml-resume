@@ -13,7 +13,10 @@ def test_init():
         input='John Doe\nCaptain\njohn@doe.com\n+33611111111\n' +
               '10 Downing Street\nLondon\nSW1A 2AA\n\nUK\ny\n' +
               'Facebook\nhttps://facebook.com/johndoe\ny\n' +
-              'Twitter\nhttps://twitter.com/nottherealjohndoe\nn\ny\n'
+              'Twitter\nhttps://twitter.com/nottherealjohndoe\nn\ny\n' +
+              'Starfleet\nCaptain\nJanuary 2150\n\nCommanding officer of ' +
+              'starship Enterprise\n\nFought Klingons\n\nDisccoverd worlds' +
+              '\nn\nofficer commander warp\nn\ny'
         )
     assert result.exit_code == 0
 
