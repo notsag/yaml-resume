@@ -7,6 +7,15 @@ PHONE_NUMBER_REGEX = r"((?:\+|00)[17](?: |\-)?" + \
 URL_REGEX = r"http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]" + \
     r"|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"
 
+experience = {
+    'company': {'type': 'string'},
+    'position': {'type': 'string'},
+    'startDate': {'type': 'string'},
+    'endDate': {'type': 'string'},
+    'summary': {'type': 'string'},
+    'tags': {'type': 'list', 'schema': {'type': 'string'}},
+    }
+
 profile = {
     'network': {'type': 'string'},
     'url': {'type': 'string', 'regex': URL_REGEX},
@@ -47,6 +56,15 @@ resume = {
         'schema': {
             'type': 'dict',
             'schema': profile
+            }
+        },
+    'experiences': {
+        'type': 'list',
+        'required': True,
+        'require_all': True,
+        'schema': {
+            'type': 'dict',
+            'schema': experience
             }
         }
     }
