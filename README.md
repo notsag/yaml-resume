@@ -38,6 +38,24 @@ yaml-resume validate FILENAME
 
 Please have a look at the [contributing guide](https://github.com/notsag/yaml-resume/blob/master/CONTRIBUTING.md) and the [code of conduct](https://github.com/notsag/yaml-resume/blob/master/CODE_OF_CONDUCT.md).
 
+### TL;DR
+
+You can ask for features/report bugs using Github issues.
+You can submit work using Github Pull Requests.
+
+To test development version without installing : 
+
+```
+# To install dependencies
+python3 -m pip install -r requirements.txt
+
+# To run the cli
+python3 -m yaml_resume.cli
+
+# To run the test suite
+python3 -m pytest
+```
+
 ## Credits
 
 This project was inspired by : [JSON Resume](https://github.com/jsonresume).
