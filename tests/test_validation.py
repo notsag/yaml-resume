@@ -1,5 +1,5 @@
 import re
-from yaml_resume import schema
+from yaml_resume.validator import schema
 
 EMAILS = {
     'valid': [
