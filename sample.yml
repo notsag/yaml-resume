@@ -1,0 +1,57 @@
+contact:
+  name: John Doe
+  email: john@doe.com
+  date_of_birth: 01/01/1900
+  about: Hi, my name is Doe, John Doe!
+  job: Captain
+  location:
+    address: 10 Downing Street
+    city: London
+    country: UK
+    zip: SW1A 2AA
+  phone: +44612345678
+birth:
+  year: 1990
+  location: New York
+experience:
+- company: Starfleet
+  position: Captain
+  start_date: January 2150
+  summary: Commanding officer of starship Enterprise
+           Fought Klingons
+           Disccoverd worlds
+  website: https://starfleet.federation
+  tags:
+  - officer
+  - commander
+  - warp
+profiles:
+- network: Facebook
+  url: https://facebook.com/johndoe
+- network: Twitter
+  url: https://twitter.com/nottherealjohndoe
+- network: Personal website
+  url: https://john.doe.fake
+education:
+- degree: Starfleet Captain MD
+  start_date: January 2145
+  end_date: January 2148
+  website: https://example.com
+skills:
+- name: Management
+  level: 100
+- name: Fighting
+  level: 75
+linguistics:
+- name: English
+  level: Native language
+- name: Klingon
+  level: Proficient
+projects:
+- name: pimpyourspaceship
+  description: Nothing to see here
+  url: https://github.com/johndoe/pimpyourspaceship
+hobbies:
+- name: History
+- name: Sport
+  description: Running and weightlifting
