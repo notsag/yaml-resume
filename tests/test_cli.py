@@ -2,7 +2,7 @@ from yaml_resume.cli import cli
 from click.testing import CliRunner
 import logging
 
-TESTFILE = 'tests/test.yml'
+TESTFILE = '../sample.yml'
 
 
 def test_init():
@@ -10,7 +10,7 @@ def test_init():
     result = runner.invoke(
         cli,
         ['init', TESTFILE],
-        input='John Doe\nCaptain\njohn@doe.com\n+33611111111\n' +
+        input='John Doe\n10/10/1990\nCaptain\njohn@doe.com\n+33611111111\n' +
               '10 Downing Street\nLondon\nSW1A 2AA\n\nUK\ny\n' +
               'Facebook\nhttps://facebook.com/johndoe\ny\n' +
               'Twitter\nhttps://twitter.com/nottherealjohndoe\nn\ny\n' +

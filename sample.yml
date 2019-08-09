@@ -2,7 +2,6 @@ contact:
   name: John Doe
   email: john@doe.com
   date_of_birth: 01/01/1900
-  about: Hi, my name is Doe, John Doe!
   job: Captain
   location:
     address: 10 Downing Street

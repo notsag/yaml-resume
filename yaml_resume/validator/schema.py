@@ -1,3 +1,4 @@
+DOB_REGEX = r"(([0-2][0-9])|[1-9]|(3[0-1]))/((1[0-2])|(0?[1-9]))/[0-9]{4}"
 EMAIL_REGEX = r"(\w+[.|\w])*@(\w+[.])+\w+"
 PHONE_NUMBER_REGEX = r"((?:\+|00)[17](?: |\-)?" + \
     r"|(?:\+|00)[1-9]\d{0,2}(?: |\-)?" + \
@@ -32,6 +33,7 @@ location = {
 contact = {
     'name': {'type': 'string'},
     'job': {'type': 'string'},
+    'date_of_birth': {'type': 'string', 'regex': DOB_REGEX},
     'email': {'type': 'string', 'regex': EMAIL_REGEX},
     'phone': {'type': 'string', 'regex': PHONE_NUMBER_REGEX},
     'location': {

@@ -1,6 +1,23 @@
 import re
 from yaml_resume.validator import schema
 
+DOB = {
+    'valid': [
+        '01/10/1990',
+        '20/10/1990',
+        '20/01/1990',
+        '30/01/1990',
+        '1/10/1990',
+        '1/10/1990',
+        ],
+    'not_valid': [
+        '01/13/90',
+        '01/10/90',
+        '40/10/1990',
+        '10/40/1990',
+        ]
+    }
+
 EMAILS = {
     'valid': [
         'john@doe.com',
@@ -60,3 +77,10 @@ def test_valid_urls():
         assert re.match(schema.URL_REGEX, url)
     for url in URLS['not_valid']:
         assert not re.match(schema.URL_REGEX, url)
+
+
+def test_date_of_birth():
+    for dob in DOB['valid']:
+        assert re.match(schema.DOB_REGEX, dob)
+    for dob in DOB['not_valid']:
+        assert not re.match(schema.DOB_REGEX, dob)
