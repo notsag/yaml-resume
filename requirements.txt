@@ -1,3 +1,5 @@
 click
 pyyaml
 cerberus
+pytest-cov
+codecov

@@ -2,9 +2,11 @@
 
 [![PyPI version](https://badge.fury.io/py/yaml-resume.svg)](https://badge.fury.io/py/yaml-resume)
 [![Build Status](https://travis-ci.org/notsag/yaml-resume.svg?branch=master)](https://travis-ci.org/notsag/yaml-resume)
+[![codecov.io](https://codecov.io/github/notsag/yaml-resume/coverage.svg?branch=master)](https://codecov.io/github/notsag/yaml-resume)
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+=======
 
 ## Purpose
 
@@ -53,7 +55,7 @@ python3 -m pip install -r requirements.txt
 python3 -m yaml_resume.cli
 
 # To run the test suite
-python3 -m pytest
+python3 -m pytest --cov=yaml_resume tests/
 ```
 
 ## Credits
