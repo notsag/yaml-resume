@@ -9,9 +9,6 @@ contact:
     country: UK
     zip: SW1A 2AA
   phone: +44612345678
-birth:
-  year: 1990
-  location: New York
 experiences:
 - company: Starfleet
   position: Captain
