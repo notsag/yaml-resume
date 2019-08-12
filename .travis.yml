@@ -1,12 +1,14 @@
 language: python
 dist: xenial
 python:
+  - "3.5"
   - "3.6"
   - "3.7"
+  - "3.8-dev"
+  - "pypy3.5"
 install:
   - pip install -r requirements.txt
-  - pip install flake8
-  - pip install .
+  - pip install pytest-cov codecov flake8
 script:
   - flake8 yaml_resume
   - python -m pytest --cov=yaml_resume tests/
