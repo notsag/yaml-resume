@@ -5,6 +5,13 @@ import logging
 TESTFILE = 'tests/test.yml'
 
 
+def test_usage():
+    runner = CliRunner()
+    result = runner.invoke(cli)
+    assert 'Usage:' in result.output
+    assert result.exit_code == 0
+
+
 def test_init():
     runner = CliRunner()
     result = runner.invoke(
