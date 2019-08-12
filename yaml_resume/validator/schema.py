@@ -17,6 +17,11 @@ experience = {
     'tags': {'type': 'list', 'schema': {'type': 'string'}},
     }
 
+skill = {
+    'name': {'type': 'string'},
+    'level': {'type': 'integer', 'min': 0, 'max': 100},
+    }
+
 profile = {
     'network': {'type': 'string'},
     'url': {'type': 'string', 'regex': URL_REGEX},
@@ -67,6 +72,15 @@ resume = {
         'schema': {
             'type': 'dict',
             'schema': experience
+            }
+        },
+    'skills': {
+        'type': 'list',
+        'required': True,
+        'require_all': True,
+        'schema': {
+            'type': 'dict',
+            'schema': skill
             }
         }
     }

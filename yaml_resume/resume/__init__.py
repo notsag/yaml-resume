@@ -2,6 +2,7 @@ import yaml
 from .contact import Contact
 from .profile import Profile
 from .experience import Experience
+from .skill import Skill
 
 
 class Resume(yaml.YAMLObject):
@@ -15,3 +16,5 @@ class Resume(yaml.YAMLObject):
         self.profiles = Profile.ask_profiles()
         print("## Experiences ##")
         self.experiences = Experience.ask_experiences()
+        print("## Skills ##")
+        self.skills = Skill.ask_skills()

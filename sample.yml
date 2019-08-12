@@ -12,7 +12,7 @@ contact:
 birth:
   year: 1990
   location: New York
-experience:
+experiences:
 - company: Starfleet
   position: Captain
   start_date: January 2150
