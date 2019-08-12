@@ -10,7 +10,7 @@ class Skill(yaml.YAMLObject):
         self.name = name
         self.level = level
 
-    def ask_skills():
+    def ask():
         """
         Prompt questions for skills section
         returns a list of Skill objects

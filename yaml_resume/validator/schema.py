@@ -22,6 +22,11 @@ skill = {
     'level': {'type': 'integer', 'min': 0, 'max': 100},
     }
 
+language = {
+    'name': {'type': 'string'},
+    'level': {'type': 'string'},
+    }
+
 profile = {
     'network': {'type': 'string'},
     'url': {'type': 'string', 'regex': URL_REGEX},
@@ -81,6 +86,15 @@ resume = {
         'schema': {
             'type': 'dict',
             'schema': skill
+            }
+        },
+    'languages': {
+        'type': 'list',
+        'required': False,
+        'require_all': True,
+        'schema': {
+            'type': 'dict',
+            'schema': language
             }
         }
     }

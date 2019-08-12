@@ -10,7 +10,7 @@ class Profile(yaml.YAMLObject):
         self.network = network
         self.url = url
 
-    def ask_profiles():
+    def ask():
         """
         Prompt questions for profiles section
         returns a list of Profiles object

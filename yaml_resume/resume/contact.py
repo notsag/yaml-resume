@@ -13,7 +13,7 @@ class Location(yaml.YAMLObject):
         self.state = state
         self.country = country
 
-    def ask_location():
+    def ask():
         """
         Prompt questions for location informations
         returns a Location object
@@ -38,7 +38,7 @@ class Contact(yaml.YAMLObject):
         self.phone = phone
         self.location = location
 
-    def ask_contact():
+    def ask():
         """
         Prompt questions for contact informations
         returns a Contact object
@@ -50,6 +50,6 @@ class Contact(yaml.YAMLObject):
             job = click.prompt("What is your job title?")
             email = click.prompt("What is your email address?")
             phone = click.prompt("What is your phone number?")
-            location = Location.ask_location()
+            location = Location.ask()
             correct = click.confirm("Is this correct?")
         return Contact(name, date_of_birth, job, email, phone, location)

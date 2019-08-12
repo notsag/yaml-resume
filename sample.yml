@@ -41,7 +41,7 @@ skills:
   level: 100
 - name: Fighting
   level: 75
-linguistics:
+languages:
 - name: English
   level: Native language
 - name: Klingon

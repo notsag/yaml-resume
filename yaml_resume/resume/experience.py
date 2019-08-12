@@ -14,7 +14,7 @@ class Experience(yaml.YAMLObject):
         self.summary = summary
         self.tags = tags
 
-    def ask_experiences():
+    def ask():
         """
         Prompt questions for experiences section
         returns a list of Experience objects
