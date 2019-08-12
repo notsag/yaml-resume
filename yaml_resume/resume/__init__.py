@@ -10,14 +10,22 @@ class Resume(yaml.YAMLObject):
     """Resume object"""
     yaml_tag = u'Resume'
 
-    def __init__(self):
+    def __init__(self, contact, profiles, experiences, skills, languages):
+        self.contact = contact
+        self.profiles = profiles
+        self.experiences = experiences
+        self.skills = skills
+        self.languages = languages
+
+    def ask():
         print("## Contact Informations ##")
-        self.contact = Contact.ask()
+        contact = Contact.ask()
         print("## Profiles ##")
-        self.profiles = Profile.ask()
+        profiles = Profile.ask()
         print("## Experiences ##")
-        self.experiences = Experience.ask()
+        experiences = Experience.ask()
         print("## Skills ##")
-        self.skills = Skill.ask()
+        skills = Skill.ask()
         print("## Languages ##")
-        self.languages = Language.ask()
+        languages = Language.ask()
+        return Resume(contact, profiles, experiences, skills, languages)

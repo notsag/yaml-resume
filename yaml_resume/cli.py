@@ -19,7 +19,7 @@ def cli():
 @click.argument('filename')
 def init(filename):
     """Setup a new resume through cli questionnaire"""
-    resume = Resume()
+    resume = Resume.ask()
     with open(filename, 'w+') as outfile:
         yaml.emitter.Emitter.process_tag = no_tag
         yaml.dump(resume, outfile, default_flow_style=False)
