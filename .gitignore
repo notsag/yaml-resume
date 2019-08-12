@@ -121,5 +121,6 @@ venv.bak/
 # vim
 *.swp
 
-# test file
+# test files
 tests/test.yml
+tests/wrong.yml

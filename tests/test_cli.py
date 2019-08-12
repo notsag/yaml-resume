@@ -2,7 +2,7 @@ from yaml_resume.cli import cli
 from click.testing import CliRunner
 import logging
 
-TESTFILE = '../sample.yml'
+TESTFILE = 'tests/test.yml'
 
 
 def test_init():
@@ -31,3 +31,15 @@ def test_validate():
     if result.output != "":
         logging.error(result.output)
     assert result.exit_code == 0
+
+
+def test_fail_validate():
+    wrongfile = 'tests/wrong.yml'
+    with open(wrongfile, 'w') as out:
+        out.write('contact:')
+    runner = CliRunner()
+    result = runner.invoke(
+        cli,
+        ['validate', wrongfile]
+        )
+    assert result.exit_code != 0
