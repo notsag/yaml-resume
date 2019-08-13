@@ -22,8 +22,8 @@ def test_init():
         + "Facebook\nhttps://facebook.com/johndoe\ny\n"
         + "Twitter\nhttps://twitter.com/nottherealjohndoe\nn\ny\n"
         + "Starfleet\nCaptain\nJanuary 2150\n\nCommanding officer of "
-        + "starship Enterprise\n\nFought Klingons\n\nDisccoverd worlds"
-        + "\nn\nofficer commander warp\nhttps://starfleet.com\nn\ny\n"
+        + "starship Enterprise\nFought Klingons\nDisccoverd worlds"
+        + "\n\nofficer commander warp\nhttps://starfleet.com\nn\ny\n"
         + "Management\n100\ny\nFighting\n75\nn\ny\nEnglish\nNative\nn\n"
         + "y\ntestproject\nnothing special\nhttps://google.com\nn\ny",
     )

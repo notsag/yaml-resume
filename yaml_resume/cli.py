@@ -10,6 +10,15 @@ def no_tag(self, *args, **kw):
     pass
 
 
+def str_presenter(dumper, data):
+    """Use literal block scalar style for multiline strings"""
+    if len(data.splitlines()) > 1:
+        return dumper.represent_scalar(
+            "tag:yaml.org,2002:str", data, style="|"
+        )
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+
+
 @click.group()
 def cli():
     pass
@@ -22,6 +31,7 @@ def init(filename):
     resume = Resume.ask()
     with open(filename, "w+") as outfile:
         yaml.emitter.Emitter.process_tag = no_tag
+        yaml.add_representer(str, str_presenter)
         yaml.dump(resume, outfile, default_flow_style=False)
     outfile.close()
 

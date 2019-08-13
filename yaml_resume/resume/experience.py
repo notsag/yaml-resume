@@ -35,11 +35,12 @@ class Experience(yaml.YAMLObject):
                     "When did you stop working there?", default=""
                 )
                 summary = ""
-                summary_adding = True
-                while summary_adding:
-                    summary = summary + click.prompt("Summary:") + "\n"
-                    summary_adding = click.confirm(
-                        "Continue summary?", default=True
+                buffer = False
+                while buffer != "":
+                    if buffer is not False:
+                        summary += buffer + "\n"
+                    buffer = click.prompt(
+                        "Summary (empty line to finish)", default=""
                     )
                 tags = click.prompt(
                     "Add tags? (1 word/1 tag)", default=""
