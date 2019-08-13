@@ -13,9 +13,10 @@ experiences:
 - company: Starfleet
   position: Captain
   start_date: January 2150
-  summary: Commanding officer of starship Enterprise
-           Fought Klingons
-           Disccoverd worlds
+  summary: |
+       Commanding officer of starship Enterprise
+       Fought Klingons
+       Disccoverd worlds
   website: https://starfleet.federation
   tags:
   - officer
