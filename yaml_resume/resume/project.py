@@ -4,7 +4,8 @@ import click
 
 class Project(yaml.YAMLObject):
     """Project object"""
-    yaml_tag = u'Project'
+
+    yaml_tag = u"Project"
 
     def __init__(self, name, description, url):
         self.name = name

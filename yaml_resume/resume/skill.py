@@ -4,7 +4,8 @@ import click
 
 class Skill(yaml.YAMLObject):
     """Skill object"""
-    yaml_tag = u'Skill'
+
+    yaml_tag = u"Skill"
 
     def __init__(self, name, level):
         self.name = name

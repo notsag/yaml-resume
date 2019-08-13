@@ -4,7 +4,8 @@ import click
 
 class Profile(yaml.YAMLObject):
     """Profile object"""
-    yaml_tag = u'Profile'
+
+    yaml_tag = u"Profile"
 
     def __init__(self, network, url):
         self.network = network

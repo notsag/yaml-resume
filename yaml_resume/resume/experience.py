@@ -4,7 +4,8 @@ import click
 
 class Experience(yaml.YAMLObject):
     """Experience object"""
-    yaml_tag = u'Experience'
+
+    yaml_tag = u"Experience"
 
     def __init__(self, company, position, startDate, endDate, summary, tags):
         self.company = company
@@ -29,22 +30,22 @@ class Experience(yaml.YAMLObject):
                 startDate = click.prompt("When did you start working there?")
                 endDate = click.prompt(
                     "When did you stop working there?", default=""
-                    )
+                )
                 summary = ""
                 summary_adding = True
                 while summary_adding:
                     summary = summary + click.prompt("Summary:") + "\n"
                     summary_adding = click.confirm(
                         "Continue summary?", default=True
-                        )
+                    )
                 tags = click.prompt(
                     "Add tags? (1 word/1 tag)", default=""
-                    ).split()
+                ).split()
                 experiences.append(
-                     Experience(
-                         company, position, startDate, endDate, summary, tags
-                         )
-                     )
+                    Experience(
+                        company, position, startDate, endDate, summary, tags
+                    )
+                )
                 continue_adding = click.confirm("Add a new experience?")
             correct = click.confirm("Is this correct?")
         return experiences

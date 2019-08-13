@@ -4,7 +4,8 @@ import click
 
 class Location(yaml.YAMLObject):
     """Full address object"""
-    yaml_tag = u'Location'
+
+    yaml_tag = u"Location"
 
     def __init__(self, address, city, zipcode, state="", country=""):
         self.address = address
@@ -28,7 +29,8 @@ class Location(yaml.YAMLObject):
 
 class Contact(yaml.YAMLObject):
     """Contact object"""
-    yaml_tag = u'Contact'
+
+    yaml_tag = u"Contact"
 
     def __init__(self, name, date_of_birth, job, email, phone, location):
         self.name = name

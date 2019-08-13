@@ -5,8 +5,5 @@ import yaml
 
 def validate(resume):
     v = Validator(schema.resume)
-    document = yaml.load(
-        open(resume, 'r'),
-        Loader=yaml.FullLoader
-    )
+    document = yaml.load(open(resume, "r"), Loader=yaml.FullLoader)
     return (v.validate(document), v.errors)

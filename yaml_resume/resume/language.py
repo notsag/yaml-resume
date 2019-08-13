@@ -4,7 +4,8 @@ import click
 
 class Language(yaml.YAMLObject):
     """Language object"""
-    yaml_tag = u'Language'
+
+    yaml_tag = u"Language"
 
     def __init__(self, name, level):
         self.name = name

@@ -16,18 +16,18 @@ def cli():
 
 
 @cli.command()
-@click.argument('filename')
+@click.argument("filename")
 def init(filename):
     """Setup a new resume through cli questionnaire"""
     resume = Resume.ask()
-    with open(filename, 'w+') as outfile:
+    with open(filename, "w+") as outfile:
         yaml.emitter.Emitter.process_tag = no_tag
         yaml.dump(resume, outfile, default_flow_style=False)
     outfile.close()
 
 
 @cli.command()
-@click.argument('filename')
+@click.argument("filename")
 def validate(filename):
     """Validate YAML file"""
     (result, errors) = validator.validate(filename)
@@ -35,5 +35,5 @@ def validate(filename):
         raise click.ClickException(errors)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     cli()
