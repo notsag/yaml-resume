@@ -8,7 +8,7 @@ contact:
     city: London
     country: UK
     zip: SW1A 2AA
-  phone: +44612345678
+  phone: '+44612345678'
 experiences:
 - company: Starfleet
   position: Captain

@@ -23,9 +23,9 @@ def test_init():
         + "Twitter\nhttps://twitter.com/nottherealjohndoe\nn\ny\n"
         + "Starfleet\nCaptain\nJanuary 2150\n\nCommanding officer of "
         + "starship Enterprise\n\nFought Klingons\n\nDisccoverd worlds"
-        + "\nn\nofficer commander warp\nn\ny\nManagement\n100\ny\n"
-        + "Fighting\n75\nn\ny\nEnglish\nNative\nn\ny\ntestproject\n"
-        + "nothing special\nhttps://google.com\nn\ny",
+        + "\nn\nofficer commander warp\nhttps://starfleet.com\nn\ny\n"
+        + "Management\n100\ny\nFighting\n75\nn\ny\nEnglish\nNative\nn\n"
+        + "y\ntestproject\nnothing special\nhttps://google.com\nn\ny",
     )
     assert result.exit_code == 0
 

@@ -15,10 +15,11 @@ URL_REGEX = (
 experience = {
     "company": {"type": "string"},
     "position": {"type": "string"},
-    "startDate": {"type": "string"},
-    "endDate": {"type": "string"},
+    "start_date": {"type": "string"},
+    "end_date": {"type": "string"},
     "summary": {"type": "string"},
     "tags": {"type": "list", "schema": {"type": "string"}},
+    "website": {"type": "string", "regex": URL_REGEX},
 }
 
 skill = {

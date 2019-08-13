@@ -7,13 +7,16 @@ class Experience(yaml.YAMLObject):
 
     yaml_tag = u"Experience"
 
-    def __init__(self, company, position, startDate, endDate, summary, tags):
+    def __init__(
+        self, company, position, start_date, end_date, summary, tags, website
+    ):
         self.company = company
         self.position = position
-        self.startDate = startDate
-        self.endDate = endDate
+        self.start_date = start_date
+        self.end_date = end_date
         self.summary = summary
         self.tags = tags
+        self.website = website
 
     def ask():
         """
@@ -27,8 +30,8 @@ class Experience(yaml.YAMLObject):
             while continue_adding:
                 company = click.prompt("What is the name of the company?")
                 position = click.prompt("What is/was your position?")
-                startDate = click.prompt("When did you start working there?")
-                endDate = click.prompt(
+                start_date = click.prompt("When did you start working there?")
+                end_date = click.prompt(
                     "When did you stop working there?", default=""
                 )
                 summary = ""
@@ -41,9 +44,16 @@ class Experience(yaml.YAMLObject):
                 tags = click.prompt(
                     "Add tags? (1 word/1 tag)", default=""
                 ).split()
+                website = click.prompt("What is the website of the company?")
                 experiences.append(
                     Experience(
-                        company, position, startDate, endDate, summary, tags
+                        company,
+                        position,
+                        start_date,
+                        end_date,
+                        summary,
+                        tags,
+                        website,
                     )
                 )
                 continue_adding = click.confirm("Add a new experience?")
