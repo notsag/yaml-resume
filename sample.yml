@@ -33,7 +33,8 @@ education:
 - degree: Starfleet Captain MD
   start_date: January 2145
   end_date: January 2148
-  website: https://example.com
+  institution: Starfleet
+  website: https://starfleet.com
 skills:
 - name: Management
   level: 100

@@ -43,6 +43,8 @@ def validate(filename):
     (result, errors) = validator.validate(filename)
     if not result:
         raise click.ClickException(errors)
+    else:
+        click.echo("Resume is well formed.")
 
 
 if __name__ == "__main__":

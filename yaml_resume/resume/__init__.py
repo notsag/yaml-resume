@@ -2,6 +2,7 @@ import yaml
 from .contact import Contact
 from .profile import Profile
 from .experience import Experience
+from .degree import Degree
 from .skill import Skill
 from .language import Language
 from .project import Project
@@ -18,6 +19,7 @@ class Resume(yaml.YAMLObject):
         contact,
         profiles,
         experiences,
+        education,
         skills,
         languages,
         projects,
@@ -26,6 +28,7 @@ class Resume(yaml.YAMLObject):
         self.contact = contact
         self.profiles = profiles
         self.experiences = experiences
+        self.education = education
         self.skills = skills
         self.languages = languages
         self.projects = projects
@@ -38,6 +41,8 @@ class Resume(yaml.YAMLObject):
         profiles = Profile.ask()
         print("## Experiences ##")
         experiences = Experience.ask()
+        print("## Education ##")
+        education = Degree.ask()
         print("## Skills ##")
         skills = Skill.ask()
         print("## Languages ##")
@@ -50,6 +55,7 @@ class Resume(yaml.YAMLObject):
             contact,
             profiles,
             experiences,
+            education,
             skills,
             languages,
             projects,

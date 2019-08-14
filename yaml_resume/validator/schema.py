@@ -22,6 +22,14 @@ experience = {
     "website": {"type": "string", "regex": URL_REGEX},
 }
 
+degree = {
+    "institution": {"type": "string"},
+    "degree": {"type": "string"},
+    "start_date": {"type": "string"},
+    "end_date": {"type": "string"},
+    "website": {"type": "string", "regex": URL_REGEX},
+}
+
 skill = {
     "name": {"type": "string"},
     "level": {"type": "integer", "min": 0, "max": 100},
@@ -82,6 +90,12 @@ resume = {
         "required": True,
         "require_all": True,
         "schema": {"type": "dict", "schema": experience},
+    },
+    "education": {
+        "type": "list",
+        "required": True,
+        "require_all": True,
+        "schema": {"type": "dict", "schema": degree},
     },
     "skills": {
         "type": "list",
