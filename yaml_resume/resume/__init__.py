@@ -5,6 +5,7 @@ from .experience import Experience
 from .skill import Skill
 from .language import Language
 from .project import Project
+from .hobby import Hobby
 
 
 class Resume(yaml.YAMLObject):
@@ -13,7 +14,14 @@ class Resume(yaml.YAMLObject):
     yaml_tag = u"Resume"
 
     def __init__(
-        self, contact, profiles, experiences, skills, languages, projects
+        self,
+        contact,
+        profiles,
+        experiences,
+        skills,
+        languages,
+        projects,
+        hobbies,
     ):
         self.contact = contact
         self.profiles = profiles
@@ -21,6 +29,7 @@ class Resume(yaml.YAMLObject):
         self.skills = skills
         self.languages = languages
         self.projects = projects
+        self.hobbies = hobbies
 
     def ask():
         print("## Contact Informations ##")
@@ -35,6 +44,14 @@ class Resume(yaml.YAMLObject):
         languages = Language.ask()
         print("## Projects ##")
         projects = Project.ask()
+        print("## Hobbies ##")
+        hobbies = Hobby.ask()
         return Resume(
-            contact, profiles, experiences, skills, languages, projects
+            contact,
+            profiles,
+            experiences,
+            skills,
+            languages,
+            projects,
+            hobbies,
         )

@@ -27,6 +27,8 @@ skill = {
     "level": {"type": "integer", "min": 0, "max": 100},
 }
 
+hobby = {"name": {"type": "string"}, "details": {"type": "string"}}
+
 project = {
     "name": {"type": "string"},
     "description": {"type": "string"},
@@ -98,5 +100,11 @@ resume = {
         "required": False,
         "require_all": False,
         "schema": {"type": "dict", "schema": project},
+    },
+    "hobbies": {
+        "type": "list",
+        "required": False,
+        "require_all": False,
+        "schema": {"type": "dict", "schema": hobby},
     },
 }
