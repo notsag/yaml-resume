@@ -25,8 +25,8 @@ def test_init():
         + "starship Enterprise\nFought Klingons\nDisccoverd worlds"
         + "\n\nofficer commander warp\nhttps://starfleet.com\nn\ny\n"
         + "Starfleet\nCaptain MD\nJanuary 2145\nDecember 2150\n"
-        + "http://starfleet.com\nn\ny\nManagement\n100\ny\nFighting\n75\nn\ny"
-        + "\nEnglish\nNative\nn\ny\ntestproject\nnothing special\n"
+        + "http://starfleet.com\nn\ny\nManagement\n99\ny\nFighting\n75\nn\ny"
+        + "\nEnglish\nNative\nn\ny\ny\ntestproject\nnothing special\n"
         + "https://google.com\nn\ny\nSport\nRunning and stuff\nn\ny",
     )
     assert result.exit_code == 0

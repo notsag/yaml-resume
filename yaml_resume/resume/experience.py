@@ -28,12 +28,10 @@ class Experience(yaml.YAMLObject):
         correct = False
         while not correct:
             while continue_adding:
-                company = click.prompt("What is the name of the company?")
-                position = click.prompt("What is/was your position?")
-                start_date = click.prompt("When did you start working there?")
-                end_date = click.prompt(
-                    "When did you stop working there?", default=""
-                )
+                company = click.prompt("Company")
+                position = click.prompt("Position")
+                start_date = click.prompt("Start date")
+                end_date = click.prompt("End date", default="")
                 summary = ""
                 buffer = False
                 while buffer != "":
@@ -43,9 +41,9 @@ class Experience(yaml.YAMLObject):
                         "Summary (empty line to finish)", default=""
                     )
                 tags = click.prompt(
-                    "Add tags? (1 word/1 tag)", default=""
+                    "Tags (use space between tags)", default=""
                 ).split()
-                website = click.prompt("What is the website of the company?")
+                website = click.prompt("Website (optional)")
                 experiences.append(
                     Experience(
                         company,

@@ -1,4 +1,5 @@
 import yaml
+import click
 from .contact import Contact
 from .profile import Profile
 from .experience import Experience
@@ -48,8 +49,11 @@ class Resume(yaml.YAMLObject):
         skills = Skill.ask()
         print("## Languages ##")
         languages = Language.ask()
-        print("## Projects ##")
-        projects = Project.ask()
+        if click.confirm(
+            "Do you want to add a Projects section?", default=False
+        ):
+            print("## Projects ##")
+            projects = Project.ask()
         print("## Hobbies ##")
         hobbies = Hobby.ask()
         return Resume(

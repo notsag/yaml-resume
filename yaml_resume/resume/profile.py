@@ -21,8 +21,8 @@ class Profile(yaml.YAMLObject):
         correct = False
         while not correct:
             while continue_adding:
-                network = click.prompt("What network do you want to add?")
-                url = click.prompt("What is the url of your profile?")
+                network = click.prompt("Network")
+                url = click.prompt("URL")
                 profiles.append(Profile(network, url))
                 continue_adding = click.confirm("Add a new profile?")
             correct = click.confirm("Is this correct?")

@@ -16,18 +16,18 @@ experience = {
     "company": {"type": "string"},
     "position": {"type": "string"},
     "start_date": {"type": "string"},
-    "end_date": {"type": "string"},
+    "end_date": {"type": "string", "required": False},
     "summary": {"type": "string"},
     "tags": {"type": "list", "schema": {"type": "string"}},
-    "website": {"type": "string", "regex": URL_REGEX},
+    "website": {"type": "string", "regex": URL_REGEX, "required": False},
 }
 
 degree = {
     "institution": {"type": "string"},
     "degree": {"type": "string"},
     "start_date": {"type": "string"},
-    "end_date": {"type": "string"},
-    "website": {"type": "string", "regex": URL_REGEX},
+    "end_date": {"type": "string", "required": False},
+    "website": {"type": "string", "regex": URL_REGEX, "required": False},
 }
 
 skill = {
@@ -35,12 +35,15 @@ skill = {
     "level": {"type": "integer", "min": 0, "max": 100},
 }
 
-hobby = {"name": {"type": "string"}, "details": {"type": "string"}}
+hobby = {
+    "name": {"type": "string"},
+    "details": {"type": "string", "required": False},
+}
 
 project = {
     "name": {"type": "string"},
     "description": {"type": "string"},
-    "url": {"type": "string", "regex": URL_REGEX},
+    "url": {"type": "string", "regex": URL_REGEX, "required": False},
 }
 
 language = {"name": {"type": "string"}, "level": {"type": "string"}}
@@ -112,7 +115,7 @@ resume = {
     "projects": {
         "type": "list",
         "required": False,
-        "require_all": False,
+        "require_all": True,
         "schema": {"type": "dict", "schema": project},
     },
     "hobbies": {

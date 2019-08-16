@@ -24,17 +24,11 @@ class Degree(yaml.YAMLObject):
         correct = False
         while not correct:
             while continue_adding:
-                institution = click.prompt(
-                    "What is the name of the institution?"
-                )
-                degree = click.prompt("What your degree did you prepare?")
-                start_date = click.prompt("When did you start?")
-                end_date = click.prompt(
-                    "When did you stop?", default=start_date
-                )
-                website = click.prompt(
-                    "What is the website of the institution?"
-                )
+                institution = click.prompt("Institution")
+                degree = click.prompt("Degree")
+                start_date = click.prompt("Start date")
+                end_date = click.prompt("End date (optional)", default="")
+                website = click.prompt("Website (optional)", default="")
                 education.append(
                     Degree(institution, degree, start_date, end_date, website)
                 )

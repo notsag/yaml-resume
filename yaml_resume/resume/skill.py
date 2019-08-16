@@ -21,8 +21,13 @@ class Skill(yaml.YAMLObject):
         correct = False
         while not correct:
             while continue_adding:
-                name = click.prompt("What skill do you want to add?")
-                level = click.prompt("What level do you have? (0-100)")
+                name = click.prompt("Name")
+                level = click.prompt(
+                    "Level (0-100)",
+                    value_proc=lambda x: x
+                    if int(x) > 0 and int(x) <= 100
+                    else 0,
+                )
                 skills.append(Skill(name, int(level)))
                 continue_adding = click.confirm("Add a new skill?")
             correct = click.confirm("Is this correct?")

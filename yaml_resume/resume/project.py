@@ -22,9 +22,9 @@ class Project(yaml.YAMLObject):
         correct = False
         while not correct:
             while continue_adding:
-                name = click.prompt("What project did you work on?")
-                description = click.prompt("Can you give a brief description?")
-                url = click.prompt("What is the URL of the project?")
+                name = click.prompt("Name")
+                description = click.prompt("Description")
+                url = click.prompt("URL (optional)", default="")
                 projects.append(Project(name, description, url))
                 continue_adding = click.confirm("Add a new project?")
             correct = click.confirm("Is this correct?")

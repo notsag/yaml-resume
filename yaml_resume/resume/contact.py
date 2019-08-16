@@ -19,11 +19,11 @@ class Location(yaml.YAMLObject):
         Prompt questions for location informations
         returns a Location object
         """
-        address = click.prompt("What is your address?")
-        city = click.prompt("In what city?")
-        zipcode = click.prompt("Postal/Zip code of that city?")
-        state = click.prompt("In what state? (optional)", default="")
-        country = click.prompt("In what country? (optional)", default="")
+        address = click.prompt("Address")
+        city = click.prompt("City")
+        zipcode = click.prompt("Zipcode")
+        state = click.prompt("State (optional)", default="")
+        country = click.prompt("Country (optional)", default="")
         return Location(address, city, zipcode, state, country)
 
 
@@ -47,11 +47,11 @@ class Contact(yaml.YAMLObject):
         """
         correct = False
         while not correct:
-            name = click.prompt("What is your name?")
-            date_of_birth = click.prompt("When were you born? (dd/mm/yyyy)")
-            job = click.prompt("What is your job title?")
-            email = click.prompt("What is your email address?")
-            phone = click.prompt("What is your phone number?")
+            name = click.prompt("Full name")
+            date_of_birth = click.prompt("Date of birth (dd/mm/yyyy)")
+            job = click.prompt("Job title")
+            email = click.prompt("Email address")
+            phone = click.prompt("Phone number?")
             location = Location.ask()
             correct = click.confirm("Is this correct?")
         return Contact(name, date_of_birth, job, email, phone, location)

@@ -54,7 +54,7 @@ python3 -m pip install -r requirements.txt
 python3 -m pip install pytest pytest-cov flake8 black pre-commit
 
 # To run the cli
-python3 -m yaml_resume.cli
+python3 -m yaml_resume
 
 # To run the test suite
 python3 -m pytest --cov=yaml_resume tests/

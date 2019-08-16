@@ -7,11 +7,11 @@ with open("README.md") as f:
 
 setup(
     name="yaml-resume",
-    packages=["yaml_resume"],
+    packages=["yaml_resume", "yaml_resume.resume", "yaml_resume.validator"],
     description="Command line interface to build/validate YAML resumes",
     long_description=README,
     long_description_content_type="text/markdown",
-    version="0.0.3",
+    version="0.1.1",
     url="http://github.com/notsag/yaml-resume",
     author="Maxime GASTON",
     author_email="maxime@gaston.sh",
