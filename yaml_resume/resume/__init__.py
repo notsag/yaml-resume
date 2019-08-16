@@ -35,6 +35,7 @@ class Resume(yaml.YAMLObject):
         self.hobbies = hobbies
 
     def ask():
+        """Prompts questions and return Resume object"""
         print("## Contact Informations ##")
         contact = Contact.ask()
         print("## Profiles ##")

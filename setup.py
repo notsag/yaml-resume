@@ -8,7 +8,7 @@ with open("README.md") as f:
 setup(
     name="yaml-resume",
     packages=["yaml_resume"],
-    description="YAML resume command line interface",
+    description="Command line interface to build/validate YAML resumes",
     long_description=README,
     long_description_content_type="text/markdown",
     version="0.0.3",
@@ -19,5 +19,5 @@ setup(
     keywords=["resume", "yaml"],
     install_requires=["click", "pyyaml", "cerberus"],
     entry_points={"console_scripts": ["yaml-resume = yaml_resume.cli:cli"]},
-    tests_require=["pytest"],
+    tests_require=["pytest", "pytest-cov"],
 )

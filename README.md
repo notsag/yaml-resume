@@ -51,12 +51,16 @@ To test development version without installing :
 ```
 # To install dependencies
 python3 -m pip install -r requirements.txt
+python3 -m pip install pytest pytest-cov flake8 black pre-commit
 
 # To run the cli
 python3 -m yaml_resume.cli
 
 # To run the test suite
 python3 -m pytest --cov=yaml_resume tests/
+
+# To install pre-commit hook
+pre-commit install
 ```
 
 ## Credits

@@ -21,13 +21,20 @@ def str_presenter(dumper, data):
 
 @click.group()
 def cli():
+    """
+    This is the command that will be used.
+    We define a click group that will includes all subcommands.
+    """
     pass
 
 
 @cli.command()
 @click.argument("filename")
 def init(filename):
-    """Setup a new resume through cli questionnaire"""
+    """
+    cli subcommand.
+    Create a resume from questionnaire and writes it in file from argument.
+    """
     resume = Resume.ask()
     with open(filename, "w+") as outfile:
         yaml.emitter.Emitter.process_tag = no_tag
@@ -39,7 +46,10 @@ def init(filename):
 @cli.command()
 @click.argument("filename")
 def validate(filename):
-    """Validate YAML file"""
+    """
+    cli subcommand.
+    Validate (or not) the resume file from argument.
+    """
     (result, errors) = validator.validate(filename)
     if not result:
         raise click.ClickException(errors)
