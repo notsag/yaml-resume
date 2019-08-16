@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import click
 import yaml
-from yaml_resume import validator
-from yaml_resume.resume import Resume
+from . import validator
+from .resume import Resume
 
 
 def no_tag(self, *args, **kw):
@@ -20,6 +20,7 @@ def str_presenter(dumper, data):
 
 
 @click.group()
+@click.version_option(prog_name="yaml-resume")
 def cli():
     """
     This is the command that will be used.
