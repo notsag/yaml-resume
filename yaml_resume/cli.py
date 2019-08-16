@@ -29,7 +29,7 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command(short_help="Interactive resume creation")
 @click.argument("filename")
 def init(filename):
     """
@@ -44,7 +44,7 @@ def init(filename):
     outfile.close()
 
 
-@cli.command()
+@cli.command(short_help="Validate resume file content")
 @click.argument("filename")
 def validate(filename):
     """
