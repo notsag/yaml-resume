@@ -27,3 +27,7 @@ class Language(yaml.YAMLObject):
                 continue_adding = click.confirm("Add a new language?")
             correct = click.confirm("Is this correct?")
         return languages
+
+    def load(data):
+        """Load dictionary and returns an Language object"""
+        return Language(data.get("name"), data.get("level"))

@@ -29,3 +29,9 @@ class Project(yaml.YAMLObject):
                 continue_adding = click.confirm("Add a new project?")
             correct = click.confirm("Is this correct?")
         return projects
+
+    def load(data):
+        """Load dictionary and returns a Project object"""
+        return Project(
+            data.get("name"), data.get("description"), data.get("url")
+        )

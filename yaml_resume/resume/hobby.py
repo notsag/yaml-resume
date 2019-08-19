@@ -27,3 +27,7 @@ class Hobby(yaml.YAMLObject):
                 continue_adding = click.confirm("Add a new hobby?")
             correct = click.confirm("Is this correct?")
         return hobbies
+
+    def load(data):
+        """Load dictionary and returns a Hobby object"""
+        return Hobby(data.get("name"), data.get("details"))

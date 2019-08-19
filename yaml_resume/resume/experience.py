@@ -58,3 +58,15 @@ class Experience(yaml.YAMLObject):
                 continue_adding = click.confirm("Add a new experience?")
             correct = click.confirm("Is this correct?")
         return experiences
+
+    def load(data):
+        """Load dictionary and returns an Experience object"""
+        return Experience(
+            data.get("company"),
+            data.get("position"),
+            data.get("start_date"),
+            data.get("end_date"),
+            data.get("summary"),
+            data.get("tags"),
+            data.get("website"),
+        )

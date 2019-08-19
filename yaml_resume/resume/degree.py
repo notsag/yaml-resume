@@ -35,3 +35,13 @@ class Degree(yaml.YAMLObject):
                 continue_adding = click.confirm("Add a new degree?")
             correct = click.confirm("Is this correct?")
         return education
+
+    def load(data):
+        """Load dictionary and returns an Degree object"""
+        return Degree(
+            data.get("institution"),
+            data.get("degree"),
+            data.get("start_date"),
+            data.get("end_date"),
+            data.get("website"),
+        )

@@ -26,6 +26,16 @@ class Location(yaml.YAMLObject):
         country = click.prompt("Country (optional)", default="")
         return Location(address, city, zipcode, state, country)
 
+    def load(data):
+        """Load dictionary and returns a Location object"""
+        return Location(
+            data.get("address"),
+            data.get("city"),
+            data.get("zip"),
+            data.get("state"),
+            data.get("country"),
+        )
+
 
 class Contact(yaml.YAMLObject):
     """Contact object"""
@@ -55,3 +65,14 @@ class Contact(yaml.YAMLObject):
             location = Location.ask()
             correct = click.confirm("Is this correct?")
         return Contact(name, date_of_birth, job, email, phone, location)
+
+    def load(data):
+        """Load dictionary and returns a Contact object"""
+        return Contact(
+            data.get("name"),
+            data.get("date_of_birth"),
+            data.get("job"),
+            data.get("email"),
+            data.get("phone"),
+            Location.load(data.get("location")),
+        )

@@ -27,3 +27,7 @@ class Profile(yaml.YAMLObject):
                 continue_adding = click.confirm("Add a new profile?")
             correct = click.confirm("Is this correct?")
         return profiles
+
+    def load(data):
+        """Load dictionary and returns a Profile object"""
+        return Profile(data.get("network"), data.get("url"))

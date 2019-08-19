@@ -32,3 +32,7 @@ class Skill(yaml.YAMLObject):
                 continue_adding = click.confirm("Add a new skill?")
             correct = click.confirm("Is this correct?")
         return skills
+
+    def load(data):
+        """Load dictionary and returns an Skill object"""
+        return Skill(data.get("name"), data.get("level"))

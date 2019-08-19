@@ -66,3 +66,38 @@ class Resume(yaml.YAMLObject):
             projects,
             hobbies,
         )
+
+    def load(data):
+        """Load dictionary and returns a Resume object"""
+        contact = Contact.load(data.get("contact"))
+        profiles = []
+        for profile in data.get("profiles"):
+            profiles.append(Profile.load(profile))
+        experiences = []
+        for ex in data.get("experiences"):
+            experiences.append(Experience.load(ex))
+        education = []
+        for degree in data.get("education"):
+            education.append(Degree.load(degree))
+        skills = []
+        for skill in data.get("skills"):
+            skills.append(Skill.load(skill))
+        languages = []
+        for lang in data.get("languages"):
+            languages.append(Language.load(lang))
+        projects = []
+        for project in data.get("projects"):
+            projects.append(Project.load(project))
+        hobbies = []
+        for hobby in data.get("hobbies"):
+            hobbies.append(Hobby.load(hobby))
+        return Resume(
+            contact,
+            profiles,
+            experiences,
+            education,
+            skills,
+            languages,
+            projects,
+            hobbies,
+        )
