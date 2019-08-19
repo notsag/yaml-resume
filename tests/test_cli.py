@@ -1,8 +1,7 @@
 from yaml_resume.cli import cli
 from click.testing import CliRunner
+from .scenarios import SCENARIO_VALID
 import logging
-
-TESTFILE = "tests/test.yml"
 
 
 def test_usage():
@@ -13,34 +12,34 @@ def test_usage():
 
 
 def test_init():
+    """
+    Create a resume using SCENARIO_VALID
+    """
     runner = CliRunner()
+    answers = ""
+    for answer in SCENARIO_VALID["answers"]:
+        answers += answer + "\n"
     result = runner.invoke(
-        cli,
-        ["init", TESTFILE],
-        input="John Doe\n10/10/1990\nCaptain\njohn@doe.com\n+33611111111\n"
-        + "10 Downing Street\nLondon\nSW1A 2AA\n\nUK\ny\n"
-        + "Facebook\nhttps://facebook.com/johndoe\ny\n"
-        + "Twitter\nhttps://twitter.com/nottherealjohndoe\nn\ny\n"
-        + "Starfleet\nCaptain\nJanuary 2150\n\nCommanding officer of "
-        + "starship Enterprise\nFought Klingons\nDisccoverd worlds"
-        + "\n\nofficer commander warp\nhttps://starfleet.com\nn\ny\n"
-        + "Starfleet\nCaptain MD\nJanuary 2145\nDecember 2150\n"
-        + "http://starfleet.com\nn\ny\nManagement\n99\ny\nFighting\n75\nn\ny"
-        + "\nEnglish\nNative\nn\ny\ny\ntestproject\nnothing special\n"
-        + "https://google.com\nn\ny\nSport\nRunning and stuff\nn\ny",
+        cli, ["init", SCENARIO_VALID["file"]], input=answers
     )
     assert result.exit_code == 0
 
 
 def test_validate():
+    """
+    SCENARIO_VALID should validate
+    """
     runner = CliRunner()
-    result = runner.invoke(cli, ["validate", TESTFILE])
+    result = runner.invoke(cli, ["validate", SCENARIO_VALID["file"]])
     if result.output != "":
         logging.error(result.output)
     assert result.exit_code == 0
 
 
 def test_fail_validate():
+    """
+    Yaml file with single 'contact:' line should return an error
+    """
     wrongfile = "tests/wrong.yml"
     with open(wrongfile, "w") as out:
         out.write("contact:")

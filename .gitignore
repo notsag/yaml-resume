@@ -122,5 +122,4 @@ venv.bak/
 *.swp
 
 # test files
-tests/test.yml
-tests/wrong.yml
+tests/*.yml
