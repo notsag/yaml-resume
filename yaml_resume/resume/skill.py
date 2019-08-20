@@ -3,7 +3,14 @@ import click
 
 
 class Skill(yaml.YAMLObject):
-    """Skill object"""
+    """Class corresponding to a skill.
+
+    :param name: The name of the skill.
+    :type name: str
+    :param level: The level for this skill (0-100).
+    :type leve: int
+
+    """
 
     yaml_tag = u"Skill"
 
@@ -12,9 +19,10 @@ class Skill(yaml.YAMLObject):
         self.level = level
 
     def ask():
-        """
-        Prompt questions for skills section
-        returns a list of Skill objects
+        """Interactively create the skills section of a resume.
+
+        :returns: A list of Skill objects.
+
         """
         skills = []
         continue_adding = True
@@ -34,5 +42,11 @@ class Skill(yaml.YAMLObject):
         return skills
 
     def load(data):
-        """Load dictionary and returns an Skill object"""
+        """Load dictionary and returns an Skill object
+
+        :param data: A dictionnary loaded from a yaml file.
+        :type data: dict[]
+        :returns: A Skill object.
+
+        """
         return Skill(data.get("name"), data.get("level"))

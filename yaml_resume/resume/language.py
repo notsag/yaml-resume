@@ -3,7 +3,14 @@ import click
 
 
 class Language(yaml.YAMLObject):
-    """Language object"""
+    """Class corresponding to a language.
+
+    :param name: The name of the language.
+    :type name: str
+    :param level: The level for this language.
+    :type level: str
+
+    """
 
     yaml_tag = u"Language"
 
@@ -12,9 +19,10 @@ class Language(yaml.YAMLObject):
         self.level = level
 
     def ask():
-        """
-        Prompt questions for languages section
-        returns a list of Language objects
+        """Interactively create the language section of the resume.
+
+        :returns: A list of Language objects.
+
         """
         languages = []
         continue_adding = True
@@ -29,5 +37,11 @@ class Language(yaml.YAMLObject):
         return languages
 
     def load(data):
-        """Load dictionary and returns an Language object"""
+        """Load dictionary and returns an Language object.
+
+        :params data: A dictionary that should come from a yaml file.
+        :type data: dict[]
+        :returns: A Language object.
+
+        """
         return Language(data.get("name"), data.get("level"))

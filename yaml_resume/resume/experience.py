@@ -3,7 +3,24 @@ import click
 
 
 class Experience(yaml.YAMLObject):
-    """Experience object"""
+    """Class corresponding to an item of the experience section of a resume.
+
+    :param company: The name of the company.
+    :type company: str
+    :param position: The job title.
+    :type position: str
+    :param start_date: The start date of the experience.
+    :type start_date: str
+    :param end_date: The end date of the experience.
+    :type end_date: str
+    :param summary: The description of the experience.
+    :type summary: str
+    :param tags: A list of tags corresponding to the experience.
+    :type tags: list[str]
+    :param website: The website of the company
+    :type website: str
+
+    """
 
     yaml_tag = u"Experience"
 
@@ -19,9 +36,10 @@ class Experience(yaml.YAMLObject):
         self.website = website
 
     def ask():
-        """
-        Prompt questions for experiences section
-        returns a list of Experience objects
+        """Interactively create the experience section of the resume.
+
+        :returns: A list of Experience objects.
+
         """
         experiences = []
         continue_adding = True
@@ -60,7 +78,13 @@ class Experience(yaml.YAMLObject):
         return experiences
 
     def load(data):
-        """Load dictionary and returns an Experience object"""
+        """Load dictionary and returns an Experience object.
+
+        :param data: A dictionary loaded from a yaml file.
+        :type data: dict[]
+        :returns: An Experience object.
+
+        """
         return Experience(
             data.get("company"),
             data.get("position"),

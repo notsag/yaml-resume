@@ -3,7 +3,14 @@ import click
 
 
 class Hobby(yaml.YAMLObject):
-    """Hobby object"""
+    """Class corresponding to a Hobby.
+
+    :param name: The name of the hobby.
+    :type name: str
+    :param details: More details regarding the hobby.
+    :type details: str
+
+    """
 
     yaml_tag = u"Hobby"
 
@@ -12,9 +19,10 @@ class Hobby(yaml.YAMLObject):
         self.details = details
 
     def ask():
-        """
-        Prompt questions for hobbies section
-        returns a list of Hobby objects
+        """Interactively create the hobbies section of a resume.
+
+        :returns: A list of Hobby objects.
+
         """
         hobbies = []
         continue_adding = True
@@ -29,5 +37,10 @@ class Hobby(yaml.YAMLObject):
         return hobbies
 
     def load(data):
-        """Load dictionary and returns a Hobby object"""
+        """Load dictionary and returns a Hobby object.
+
+        :param data: A dictionary loaded from a yaml file.
+        :type data: dict[]
+        :returns: A Hobby object.
+        """
         return Hobby(data.get("name"), data.get("details"))

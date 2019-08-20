@@ -3,7 +3,14 @@ import click
 
 
 class Profile(yaml.YAMLObject):
-    """Profile object"""
+    """Class corresponding to a profile on social network.
+
+    :param network: The name of the network.
+    :type network: str
+    :param url: The url of the profile.
+    :type url: str
+
+    """
 
     yaml_tag = u"Profile"
 
@@ -12,9 +19,10 @@ class Profile(yaml.YAMLObject):
         self.url = url
 
     def ask():
-        """
-        Prompt questions for profiles section
-        returns a list of Profiles object
+        """Interactively create a Profile object.
+
+        :returns: A Profile object from privided answers.
+
         """
         profiles = []
         continue_adding = True
@@ -29,5 +37,10 @@ class Profile(yaml.YAMLObject):
         return profiles
 
     def load(data):
-        """Load dictionary and returns a Profile object"""
+        """Load dictionary and returns a Profile object
+
+        :param data: A dictionary loaded from a yaml file.
+        :type data: dict[]
+        :returns: A Profile object.
+        """
         return Profile(data.get("network"), data.get("url"))

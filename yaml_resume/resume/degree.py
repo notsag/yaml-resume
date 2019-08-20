@@ -3,7 +3,20 @@ import click
 
 
 class Degree(yaml.YAMLObject):
-    """Degree object"""
+    """Class corresponding to a line of the education section of a resume.
+
+    :param institution: The name of the institution.
+    :type institution: str
+    :param degree: The name of the degree.
+    :type degree: str
+    :param start_date: The start date of the formation.
+    :type start_date: str
+    :param end_date: The end date of the formation.
+    :type end_date: str
+    :param website: The webstie of the institution.
+    :type website: str
+
+    """
 
     yaml_tag = u"Degree"
 
@@ -15,9 +28,10 @@ class Degree(yaml.YAMLObject):
         self.website = website
 
     def ask():
-        """
-        Prompt questions for education section
-        returns a list of Degree objects
+        """Interactively create the education section of a resume.
+
+        :returns: A list of Degree objects
+
         """
         education = []
         continue_adding = True
@@ -37,7 +51,13 @@ class Degree(yaml.YAMLObject):
         return education
 
     def load(data):
-        """Load dictionary and returns an Degree object"""
+        """Load dictionary and returns an Degree object.
+
+        :param data: A dictionary loaded from a yaml file.
+        :type data: dict[]
+        :returns: A Degree object.
+
+        """
         return Degree(
             data.get("institution"),
             data.get("degree"),

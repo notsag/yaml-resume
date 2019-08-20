@@ -3,7 +3,15 @@ import click
 
 
 class Project(yaml.YAMLObject):
-    """Project object"""
+    """Class corresponding to a Project.
+
+    :param name: The name of the project.
+    :type name: str
+    :param description: The description of the project.
+    :type description: str
+    :param url: The url of the project.
+    :type url: str
+    """
 
     yaml_tag = u"Project"
 
@@ -13,9 +21,10 @@ class Project(yaml.YAMLObject):
         self.url = url
 
     def ask():
-        """
-        Prompt questions for projects section
-        returns a list of Project objects
+        """Interacively create the Projects section of a resume.
+
+        :returns: A list of Project objects
+
         """
         projects = []
         continue_adding = True
@@ -31,7 +40,13 @@ class Project(yaml.YAMLObject):
         return projects
 
     def load(data):
-        """Load dictionary and returns a Project object"""
+        """Load dictionary and returns a Project object.
+
+        :param data: A dictionary loaded from a yaml file.
+        :type data: dict[]
+        :returns: A Project object.
+
+        """
         return Project(
             data.get("name"), data.get("description"), data.get("url")
         )

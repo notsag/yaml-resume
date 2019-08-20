@@ -3,7 +3,20 @@ import click
 
 
 class Location(yaml.YAMLObject):
-    """Full address object"""
+    """Class corresponding to an full address.
+
+    :param address: Street number and name.
+    :type address: str
+    :param city: City name.
+    :type city: str
+    :param zip: Zip/Postal code
+    :type zip: str
+    :param state: (`optional`) State.
+    :type state: str
+    :param country: (`optional`) Country name or code.
+    :type country: str
+
+    """
 
     yaml_tag = u"Location"
 
@@ -15,9 +28,10 @@ class Location(yaml.YAMLObject):
         self.country = country
 
     def ask():
-        """
-        Prompt questions for location informations
-        returns a Location object
+        """Interactively create a Location object.
+
+        :returns: a Location object
+
         """
         address = click.prompt("Address")
         city = click.prompt("City")
@@ -27,7 +41,12 @@ class Location(yaml.YAMLObject):
         return Location(address, city, zipcode, state, country)
 
     def load(data):
-        """Load dictionary and returns a Location object"""
+        """Load dictionary and returns a Location object.
+
+        :param data: A dictionary corresponding to a Location object.
+        :type data: dict[]
+        :returns: A Location object.
+        """
         return Location(
             data.get("address"),
             data.get("city"),
@@ -38,7 +57,22 @@ class Location(yaml.YAMLObject):
 
 
 class Contact(yaml.YAMLObject):
-    """Contact object"""
+    """Class corresponding to the contact section of a resume.
+
+    :param name: The first, middle and last name.
+    :type name: str
+    :param date_of_birth: The date of birth.
+    :type date_of_birth: str
+    :param job: The current or researched position.
+    :type job: str
+    :param email: An email address.
+    :type email: str
+    :param phone: The phone number.
+    :type phone: str
+    :param location: The full address.
+    :type location: Location
+
+    """
 
     yaml_tag = u"Contact"
 
@@ -51,9 +85,9 @@ class Contact(yaml.YAMLObject):
         self.location = location
 
     def ask():
-        """
-        Prompt questions for contact informations
-        returns a Contact object
+        """Interactively create a Contact object.
+
+        :returns: a Contact object.
         """
         correct = False
         while not correct:
@@ -67,7 +101,13 @@ class Contact(yaml.YAMLObject):
         return Contact(name, date_of_birth, job, email, phone, location)
 
     def load(data):
-        """Load dictionary and returns a Contact object"""
+        """Load dictionary and returns a Contact object.
+
+        :param data: A dictionary corresponding to a contact object.
+        :type data: dict[]
+        :returns: A Contact object.
+
+        """
         return Contact(
             data.get("name"),
             data.get("date_of_birth"),
