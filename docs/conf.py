@@ -1,4 +1,4 @@
-from pallets_sphinx_themes import ProjectLink
+from pallets_sphinx_themes import ProjectLink, get_version
 import os
 import sys
 
@@ -10,11 +10,7 @@ project = "yaml-resume"
 copyright = "2019, Maxime GASTON"
 author = "Maxime GASTON"
 
-# The short X.Y version
-version = "0.2.0"
-
-# The full version, including alpha/beta/rc tags
-release = "0.2.0"
+release, version = get_version("yaml-resume")
 
 # -- General configuration ---------------------------------------------------
 
