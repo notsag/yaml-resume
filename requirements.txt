@@ -1,3 +1,3 @@
-click
-pyyaml
-cerberus
+click>=7.0
+pyyaml>=5.0
+cerberus>=1.0
