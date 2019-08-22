@@ -46,3 +46,7 @@ def test_fail_validate():
     runner = CliRunner()
     result = runner.invoke(cli, ["validate", wrongfile])
     assert result.exit_code != 0
+
+
+def test_export_html():
+    pass

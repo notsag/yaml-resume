@@ -37,6 +37,12 @@ Validate your yaml resume:
 yaml-resume validate FILENAME
 ```
 
+Export you resume in html or pdf:
+
+```
+yaml-resume export FILENAME [-t <theme>] [-e <html|pdf>] [-i <picture>] [-o <output-file>]
+```
+
 ## Contributions
 
 Please have a look at the [contributing guide](https://github.com/notsag/yaml-resume/blob/master/CONTRIBUTING.md) and the [code of conduct](https://github.com/notsag/yaml-resume/blob/master/CODE_OF_CONDUCT.md).
@@ -68,5 +74,7 @@ pre-commit install
 This project was inspired by : [JSON Resume](https://github.com/jsonresume).
 
 Special thanks to all contributors of the following projects used by yaml-resume :
- - [click](https://github.com/pallets/click/)
- - [cerberus](https://github.com/pyeve/cerberus)
+ - [click](https://palletsprojects.com/p/click/)
+ - [cerberus](https://python-cerberus.org)
+ - [PyYAML](https://pyyaml.org/)
+ - [jinja2](https://palletsprojects.com/p/jinja/)

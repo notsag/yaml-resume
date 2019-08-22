@@ -18,10 +18,12 @@ These distributions will be installed automatically when installing yaml-resume.
   the ``yaml-resume`` command.
 * `PyYaml`_ is the yaml framework used to dump Python object into Yaml.
 * `Cerberus`_ is the framework used to validate the resume against a defined schema.
+* `Jinja2`_ is the template engine used to generate HTML resumes.
 
 .. _Click: https://palletsprojects.com/p/click/
 .. _PyYaml: https://pyyaml.org/
 .. _Cerberus: https://python-cerberus.org/
+.. _Jinja2: https://palletsprojects.com/p/jinja/
 
 Install yaml-resume
 -------------------

@@ -1,5 +1,6 @@
 import click
 import yaml
+from jinja2 import Environment, PackageLoader
 from . import validator
 from .resume import Resume
 
@@ -53,7 +54,7 @@ def init(filename):
 
     """
     resume = Resume.ask()
-    with open(filename, "w+") as outfile:
+    with open(filename, "w") as outfile:
         yaml.emitter.Emitter.process_tag = no_tag
         yaml.add_representer(str, str_representer)
         yaml.dump(resume, outfile, default_flow_style=False)
@@ -78,6 +79,50 @@ def validate(filename):
         raise click.ClickException(errors)
     else:
         click.echo("Resume is well formed.")
+
+
+@cli.command(short_help="Export resume to HTML or PDF")
+@click.argument("filename")
+@click.option(
+    "-t",
+    "--theme",
+    default="classic",
+    type=click.Choice(["classic"]),
+    help="Name of the theme to use.",
+)
+@click.option(
+    "-e",
+    "--extension",
+    default="html",
+    type=click.Choice(["html", "pdf"]),
+    help="Format of exported data.",
+)
+@click.option(
+    "-i", "--image", default=None, help="Portrait to include in the resume."
+)
+@click.option(
+    "-o", "--output", default="resume", help="Name of the file to write."
+)
+def export(filename, theme, extension, image, output):
+    """cli subcommand to export a YAML resume to HTML or PDF
+
+    This function is a subcommand of `cli`.
+    It exports the resume in html or css using a template.
+
+    :param filename: The name of the file to load.
+    :type filename: str
+    :param theme: The name of the theme to use.
+    :type theme: str
+    :param format: The format of the exported data.
+    :type format: str
+
+    """
+    env = Environment(loader=PackageLoader("yaml_resume", "templates"))
+    resume = yaml.load(open(filename, "r"), yaml.SafeLoader)
+    template = env.get_template("{}.html".format(theme))
+    with open("{}.{}".format(output, extension), "w") as outfile:
+        outfile.write(template.render(resume=resume, image=image))
+    outfile.close()
 
 
 if __name__ == "__main__":

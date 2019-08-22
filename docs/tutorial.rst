@@ -30,6 +30,17 @@ To validate your yaml file, just use the `yaml-resume` cli again:
 The `validate` subcommand of `yaml-resume` will check your yaml file against the schema
 and return the possible errors like missing or unknown field, regex not matched...
 
+Export the resume to html/pdf
+-----------------------------
+
+To export your yaml resume to html/pdf and apply a theme:
+
+.. code-block:: sh
+
+    $ yaml-resume export my-resume.yml [-t <theme>] [-e <html|pdf>] [-i <picture>] [-o <output-file>]
+
+By default, the theme is `classic`, the format is `html` and the output file will be `resume.html`.
+
 Schema
 ------
 
