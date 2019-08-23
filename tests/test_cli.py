@@ -2,6 +2,7 @@ from yaml_resume.cli import cli
 from click.testing import CliRunner
 from .scenarios import SCENARIO_VALID
 import logging
+import filecmp
 
 
 def test_usage():
@@ -49,4 +50,12 @@ def test_fail_validate():
 
 
 def test_export_html():
-    pass
+    """
+    Test that exported is the same as expected.
+    """
+    runner = CliRunner()
+    result = runner.invoke(cli, ["export", "sample.yml"])
+    expected = "examples/resume.html"
+    exported = "resume.html"
+    assert result.exit_code == 0
+    assert filecmp.cmp(exported, expected)

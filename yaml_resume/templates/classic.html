@@ -16,8 +16,9 @@
             a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
             a:hover { border-bottom-style: solid; color: black; }
             ul { margin: 0 0 0 17px; }
-            dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
+            dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; }
             dd { width: 600px; float: right; }
+            dd.item { padding-left: 20px; border-left: 1px solid #999;  }
             dd.clear { float: none; margin: 0; height: 15px; }
         </style>
 	</head>
@@ -44,7 +45,7 @@
 			<dd class="clear"></dd>
 			<dt>Experience</dt>
 			{% for e in resume.experiences %}
-			<dd>
+			<dd class="item">
 				<h2>{{ e.company }} - {{ e.position }}<span>{{ e.start_date }}-{% if not e.end_date %}today{% else %}{{ e.end_date }}{% endif %}</span></h2>
 				<ul>{% for line in e.summary.split('\n')[:-1] %}<li>{{ line }}</li>{% endfor %}</ul>
 				<div class="tags">-{% for tag in e.tags %} {{ tag }} -{% endfor %}</div>
@@ -53,37 +54,39 @@
 			<dd class="clear"></dd>
 			<dt>Education</dt>
 			{% for d in resume.education %}
-			<dd>
+			<dd class="item">
 				<h2>{{ d.institution }} - {{ d.degree }}<span>{{ d.start_date }}-{% if not d.end_date %}today{% else %}{{ d.end_date }}{% endif %}</span></h2>
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
 			<dt>Skills</dt>
 			{% for s in resume.skills %}
-			<dd>
-				<h2>{{ s.name }}:
+			<dd class="item">
+				<h2>{{ s.name }}
 				<span>{% for i in range(10) %}{% if i < s.level|int//10 %}&#x2605;{% else %}&#x2606;{% endif %}{% endfor %}</span></h2>
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
 			<dt>Languages</dt>
 			{% for l in resume.languages %}
-			<dd>
-				<h2>{{ l.name }}: <span>{{ l.level }}</span></h2>
+			<dd class="item">
+				<h2>{{ l.name }}<span>{{ l.level }}</span></h2>
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
+			{% if resume.projects %}
 			<dt>Projects</dt>
 			{% for p in resume.projects %}
-			<dd>
+			<dd class="item">
 				<h2>{{ p.name }}: <span><a href="{{ p.url }}">{{ p.url }}</a></span></h2>
 				<p>{{ p.description }}</p>
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
+			{% endif %}
 			<dt>Hobbies</dt>
 			{% for h in resume.hobbies %}
-			<dd>
+			<dd class="item">
 				<h2>{{ h.name }}<span>{{ h.details }}</span></h2>
 			</dd>
 			{% endfor %}

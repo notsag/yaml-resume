@@ -11,7 +11,7 @@ setup(
     description="Command line interface to build/validate YAML resumes",
     long_description=README,
     long_description_content_type="text/markdown",
-    version="0.5.0",
+    version="0.7.0",
     url="http://github.com/notsag/yaml-resume",
     author="Maxime GASTON",
     author_email="maxime@gaston.sh",

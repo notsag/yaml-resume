@@ -1,7 +1,7 @@
 contact:
   name: John Doe
   email: john@doe.com
-  date_of_birth: 01/01/1900
+  date_of_birth: 01/01/2125
   job: Captain
   location:
     address: 10 Downing Street
@@ -22,6 +22,18 @@ experiences:
   - officer
   - commander
   - warp
+- company: Starfleet
+  position: Second
+  start_date: January 2148
+  end_date: December 2149
+  summary: |
+        Second to the Captain
+        Handled teleportation on the ship
+        Responsible for the phasers
+  website: https://starfleet.federation
+  tags:
+  - teleportation
+  - phaser
 profiles:
 - network: Facebook
   url: https://facebook.com/johndoe

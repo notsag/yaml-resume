@@ -31,10 +31,10 @@ def str_representer(dumper, data):
 @click.group()
 @click.version_option(prog_name="yaml-resume")
 def cli():
-    """Define a command as a group.
+    """yaml-resume CLI
 
     This function is a `click.group()` which will be used to provide
-    the yaml-resume command.
+    the main yaml-resume command.
 
     """
     pass
@@ -45,12 +45,13 @@ def cli():
 def init(filename):
     """cli subcommand to create a resume
 
-    This function is a subcommand of `cli`.
+    This function is a subcommand of yaml-resume.
     It will prompt questions to the user to build a Resume
     object and write it to a file.
+    \f
 
     :param filename: The name of the file to create.
-    :type filename: str.
+    :type filename: str
 
     """
     resume = Resume.ask()
@@ -66,11 +67,12 @@ def init(filename):
 def validate(filename):
     """cli subcommand to validate a YAML resume
 
-    This function is a subcommand of `cli`.
+    This function is a subcommand of yaml-resume.
     It checks the resume against the schema to ensure it is well formed.
+    \f
 
-    :param filename: The name of the file to create.
-    :type filename: str.
+    :param filename: The path of the file to validate.
+    :type filename: str
     :raises: ClickException
 
     """
@@ -106,8 +108,9 @@ def validate(filename):
 def export(filename, theme, extension, image, output):
     """cli subcommand to export a YAML resume to HTML or PDF
 
-    This function is a subcommand of `cli`.
+    This function is a subcommand of yaml-resume.
     It exports the resume in html or css using a template.
+    \f
 
     :param filename: The name of the file to load.
     :type filename: str
@@ -115,14 +118,20 @@ def export(filename, theme, extension, image, output):
     :type theme: str
     :param format: The format of the exported data.
     :type format: str
+    :raises: ClickException
 
     """
-    env = Environment(loader=PackageLoader("yaml_resume", "templates"))
-    resume = yaml.load(open(filename, "r"), yaml.SafeLoader)
-    template = env.get_template("{}.html".format(theme))
-    with open("{}.{}".format(output, extension), "w") as outfile:
-        outfile.write(template.render(resume=resume, image=image))
-    outfile.close()
+    (result, errors) = validator.validate(filename)
+    if not result:
+        click.echo("Cannot export: resume is malformed.")
+        raise click.ClickException(errors)
+    else:
+        env = Environment(loader=PackageLoader("yaml_resume", "templates"))
+        resume = yaml.load(open(filename, "r"), yaml.SafeLoader)
+        template = env.get_template("{}.html".format(theme))
+        with open("{}.{}".format(output, extension), "w") as outfile:
+            outfile.write(template.render(resume=resume, image=image))
+        outfile.close()
 
 
 if __name__ == "__main__":
