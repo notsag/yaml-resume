@@ -6,8 +6,7 @@ Installation
 Python Version
 --------------
 
-We recommend using the latest version of Python 3. yaml-resume supports Python 3.5
-and newer.
+We recommend using the latest version of Python 3.7. yaml-resume supports Python from 3.5 yo 3.7.
 
 Dependencies
 ------------
