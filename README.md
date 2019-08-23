@@ -78,3 +78,4 @@ Special thanks to all contributors of the following projects used by yaml-resume
  - [cerberus](https://python-cerberus.org)
  - [PyYAML](https://pyyaml.org/)
  - [jinja2](https://palletsprojects.com/p/jinja/)
+ - [WeasyPrint](https://weasyprint.org/)

@@ -59,3 +59,22 @@ def test_export_html():
     exported = "resume.html"
     assert result.exit_code == 0
     assert filecmp.cmp(exported, expected)
+
+
+def test_export_pdf():
+    """
+    Test that exported is the same as expected.
+    """
+    runner = CliRunner()
+    result = runner.invoke(cli, ["export", "sample.yml", "-e", "pdf"])
+    assert result.exit_code == 0
+
+
+def test_fail_export():
+    """
+    Yaml file with single 'contact:' line should return an error
+    """
+    wrongfile = "tests/wrong.yml"
+    runner = CliRunner()
+    result = runner.invoke(cli, ["export", wrongfile])
+    assert result.exit_code != 0

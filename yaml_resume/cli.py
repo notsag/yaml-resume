@@ -1,6 +1,7 @@
 import click
 import yaml
 from jinja2 import Environment, PackageLoader
+from weasyprint import HTML, CSS
 from . import validator
 from .resume import Resume
 
@@ -129,9 +130,16 @@ def export(filename, theme, extension, image, output):
         env = Environment(loader=PackageLoader("yaml_resume", "templates"))
         resume = yaml.load(open(filename, "r"), yaml.SafeLoader)
         template = env.get_template("{}.html".format(theme))
-        with open("{}.{}".format(output, extension), "w") as outfile:
-            outfile.write(template.render(resume=resume, image=image))
-        outfile.close()
+        if extension == "html":
+            with open("{}.{}".format(output, extension), "w") as outfile:
+                outfile.write(template.render(resume=resume, image=image))
+            outfile.close()
+        else:
+            html = HTML(string=template.render(resume=resume, image=image))
+            css = CSS(string="@page { size: A4; margin: 0.5cm }")
+            html.write_pdf(
+                "{}.{}".format(output, extension), stylesheets=[css]
+            )
 
 
 if __name__ == "__main__":
