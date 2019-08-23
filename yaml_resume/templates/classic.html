@@ -24,7 +24,7 @@
 	</head>
 	<body>
         <div class="page-wrap">
-            {% if image %}<img src="{{ image }}" alt="Photo" class="pic" />{% endif %}
+            {% if image %}<img src="file:///{{ image }}" alt="Photo" class="pic" />{% endif %}
 			<div>
 				<div {% if not image %}class="centered"{% endif %}>
 					<h1>{{ resume.contact.name }}</h1>

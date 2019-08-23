@@ -1,5 +1,6 @@
 import click
 import yaml
+import os
 from jinja2 import Environment, PackageLoader
 from weasyprint import HTML, CSS
 from . import validator
@@ -135,6 +136,8 @@ def export(filename, theme, extension, image, output):
                 outfile.write(template.render(resume=resume, image=image))
             outfile.close()
         else:
+            if image:
+                image = os.path.abspath(image)
             html = HTML(string=template.render(resume=resume, image=image))
             css = CSS(string="@page { size: A4; margin: 0.5cm }")
             html.write_pdf(
