@@ -66,7 +66,17 @@ def test_export_pdf():
     Test that exported is the same as expected.
     """
     runner = CliRunner()
-    result = runner.invoke(cli, ["export", "sample.yml", "-e", "pdf"])
+    result = runner.invoke(
+        cli,
+        [
+            "export",
+            "sample.yml",
+            "-e",
+            "pdf",
+            "-i",
+            "docs/_static/yaml-resume.png",
+        ],
+    )
     assert result.exit_code == 0
 
 
