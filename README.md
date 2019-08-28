@@ -1,5 +1,7 @@
 # yaml-resume
 
+![](https://yaml-resume.com/logo.png)
+
 [![PyPI version](https://badge.fury.io/py/yaml-resume.svg)](https://badge.fury.io/py/yaml-resume)
 [![Build Status](https://travis-ci.org/notsag/yaml-resume.svg?branch=master)](https://travis-ci.org/notsag/yaml-resume)
 [![codecov](https://codecov.io/gh/notsag/yaml-resume/branch/master/graph/badge.svg)](https://codecov.io/gh/notsag/yaml-resume)
