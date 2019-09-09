@@ -24,9 +24,7 @@ class Experience(yaml.YAMLObject):
 
     yaml_tag = u"Experience"
 
-    def __init__(
-        self, company, position, start_date, end_date, summary, tags, website
-    ):
+    def __init__(self, company, position, start_date, end_date, summary, tags, website):
         self.company = company
         self.position = position
         self.start_date = start_date
@@ -55,22 +53,12 @@ class Experience(yaml.YAMLObject):
                 while buffer != "":
                     if buffer is not False:
                         summary += buffer + "\n"
-                    buffer = click.prompt(
-                        "Summary (empty line to finish)", default=""
-                    )
-                tags = click.prompt(
-                    "Tags (use space between tags)", default=""
-                ).split()
+                    buffer = click.prompt("Summary (empty line to finish)", default="")
+                tags = click.prompt("Tags (use space between tags)", default="").split()
                 website = click.prompt("Website (optional)")
                 experiences.append(
                     Experience(
-                        company,
-                        position,
-                        start_date,
-                        end_date,
-                        summary,
-                        tags,
-                        website,
+                        company, position, start_date, end_date, summary, tags, website
                     )
                 )
                 continue_adding = click.confirm("Add a new experience?")

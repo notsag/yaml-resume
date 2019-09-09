@@ -72,9 +72,7 @@ class Resume(yaml.YAMLObject):
         skills = Skill.ask()
         print("## Languages ##")
         languages = Language.ask()
-        if click.confirm(
-            "Do you want to add a Projects section?", default=False
-        ):
+        if click.confirm("Do you want to add a Projects section?", default=False):
             print("## Projects ##")
             projects = Project.ask()
         print("## Hobbies ##")

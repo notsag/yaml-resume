@@ -47,6 +47,4 @@ class Project(yaml.YAMLObject):
         :returns: A Project object.
 
         """
-        return Project(
-            data.get("name"), data.get("description"), data.get("url")
-        )
+        return Project(data.get("name"), data.get("description"), data.get("url"))

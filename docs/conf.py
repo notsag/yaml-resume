@@ -33,9 +33,7 @@ html_context = {
         ProjectLink("YAML Resume Website", "https://yaml-resume.com"),
         ProjectLink("PyPI releases", "https://pypi.org/project/yaml-resume/"),
         ProjectLink("Source Code", "https://github.com/notsag/yaml-resume/"),
-        ProjectLink(
-            "Issue Tracker", "https://github.com/notsag/yaml-resume/issues/"
-        ),
+        ProjectLink("Issue Tracker", "https://github.com/notsag/yaml-resume/issues/"),
     ]
 }
 html_sidebars = {

@@ -20,9 +20,7 @@ def test_init():
     answers = ""
     for answer in SCENARIO_VALID["answers"]:
         answers += answer + "\n"
-    result = runner.invoke(
-        cli, ["init", SCENARIO_VALID["file"]], input=answers
-    )
+    result = runner.invoke(cli, ["init", SCENARIO_VALID["file"]], input=answers)
     assert result.exit_code == 0
 
 
@@ -67,15 +65,7 @@ def test_export_pdf():
     """
     runner = CliRunner()
     result = runner.invoke(
-        cli,
-        [
-            "export",
-            "sample.yml",
-            "-e",
-            "pdf",
-            "-i",
-            "docs/_static/yaml-resume.png",
-        ],
+        cli, ["export", "sample.yml", "-e", "pdf", "-i", "docs/_static/yaml-resume.png"]
     )
     assert result.exit_code == 0
 

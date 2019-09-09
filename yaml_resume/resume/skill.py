@@ -32,9 +32,7 @@ class Skill(yaml.YAMLObject):
                 name = click.prompt("Name")
                 level = click.prompt(
                     "Level (0-100)",
-                    value_proc=lambda x: x
-                    if int(x) > 0 and int(x) <= 100
-                    else 0,
+                    value_proc=lambda x: x if int(x) > 0 and int(x) <= 100 else 0,
                 )
                 skills.append(Skill(name, int(level)))
                 continue_adding = click.confirm("Add a new skill?")

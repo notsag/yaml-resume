@@ -30,15 +30,9 @@ degree = {
     "website": {"type": "string", "regex": URL_REGEX, "required": False},
 }
 
-skill = {
-    "name": {"type": "string"},
-    "level": {"type": "integer", "min": 0, "max": 100},
-}
+skill = {"name": {"type": "string"}, "level": {"type": "integer", "min": 0, "max": 100}}
 
-hobby = {
-    "name": {"type": "string"},
-    "details": {"type": "string", "required": False},
-}
+hobby = {"name": {"type": "string"}, "details": {"type": "string", "required": False}}
 
 project = {
     "name": {"type": "string"},
@@ -48,10 +42,7 @@ project = {
 
 language = {"name": {"type": "string"}, "level": {"type": "string"}}
 
-profile = {
-    "network": {"type": "string"},
-    "url": {"type": "string", "regex": URL_REGEX},
-}
+profile = {"network": {"type": "string"}, "url": {"type": "string", "regex": URL_REGEX}}
 
 location = {
     "address": {"type": "string"},

@@ -24,9 +24,7 @@ def str_representer(dumper, data):
 
     """
     if len(data.splitlines()) > 1:
-        return dumper.represent_scalar(
-            "tag:yaml.org,2002:str", data, style="|"
-        )
+        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
     return dumper.represent_scalar("tag:yaml.org,2002:str", data)
 
 
@@ -101,12 +99,8 @@ def validate(filename):
     type=click.Choice(["html", "pdf"]),
     help="Format of exported data.",
 )
-@click.option(
-    "-i", "--image", default=None, help="Portrait to include in the resume."
-)
-@click.option(
-    "-o", "--output", default="resume", help="Name of the file to write."
-)
+@click.option("-i", "--image", default=None, help="Portrait to include in the resume.")
+@click.option("-o", "--output", default="resume", help="Name of the file to write.")
 def export(filename, theme, extension, image, output):
     """cli subcommand to export a YAML resume to HTML or PDF
 
@@ -140,9 +134,7 @@ def export(filename, theme, extension, image, output):
                 image = os.path.abspath(image)
             html = HTML(string=template.render(resume=resume, image=image))
             css = CSS(string="@page { size: A4; margin: 0.5cm }")
-            html.write_pdf(
-                "{}.{}".format(output, extension), stylesheets=[css]
-            )
+            html.write_pdf("{}.{}".format(output, extension), stylesheets=[css])
 
 
 if __name__ == "__main__":
