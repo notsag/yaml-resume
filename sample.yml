@@ -1,8 +1,8 @@
 contact:
   name: John Doe
   email: john@doe.com
-  date_of_birth: 01/01/2125
-  job: Captain
+  date_of_birth: 01/01/1990
+  job: Python Developer
   location:
     address: 10 Downing Street
     city: London
@@ -10,30 +10,41 @@ contact:
     zip: SW1A 2AA
   phone: '+44612345678'
 experiences:
-- company: Starfleet
-  position: Captain
-  start_date: January 2150
+- company: Foo company
+  position: Senior Python Developer
+  start_date: January 2018
   summary: |
-       Commanding officer of starship Enterprise
-       Fought Klingons
-       Disccoverd worlds
-  website: https://starfleet.federation
+        Developer for the main Foo webapp
+        Worked on migration from python 2.7 to 3.6
+        Scrum master for the team of 8 people
+        Added automated unit tests
+  website: https://foo.com
   tags:
-  - officer
-  - commander
-  - warp
-- company: Starfleet
-  position: Second
-  start_date: January 2148
-  end_date: December 2149
+  - flask
+  - mongodb
+  - redis
+  - pytest
+  - scrum
+- company: Bar company
+  position: Python developer
+  start_date: January 2014
+  end_date: December 2017
   summary: |
-        Second to the Captain
-        Handled teleportation on the ship
-        Responsible for the phasers
-  website: https://starfleet.federation
+        Made Bar backoffice main features
+        Worked on CI/CD
+  website: https://bar.net
   tags:
-  - teleportation
-  - phaser
+  - django
+  - mysql
+  - jenkins
+- company: Bar company
+  position: Junior python developer
+  start_date: January 2012
+  end_date: December 2013
+  website: https://bar.net
+  summary: |
+        Made multiple KPI dashboards
+        Provided automation scripts
 profiles:
 - network: Facebook
   url: https://facebook.com/johndoe
@@ -42,25 +53,29 @@ profiles:
 - network: Personal website
   url: https://john.doe.fake
 education:
-- degree: Starfleet Captain MD
-  start_date: January 2145
-  end_date: January 2148
-  institution: Starfleet
-  website: https://starfleet.com
+- degree: Bachelor of Software Engineering
+  start_date: January 2008
+  end_date: January 2012
+  institution: University of California, Berkeley
+  website: https://www.berkeley.edu
 skills:
-- name: Management
-  level: 100
-- name: Fighting
-  level: 75
+- name: Python
+  level: 90
+- name: Flask
+  level: 80
+- name: Scrum
+  level: 80
+- name: Java
+  level: 50
 languages:
 - name: English
   level: Native language
-- name: Klingon
+- name: French
   level: Proficient
 projects:
-- name: pimpyourspaceship
-  description: Nothing to see here
-  url: https://github.com/johndoe/pimpyourspaceship
+- name: foo.bar
+  description: Just an useless app
+  url: https://github.com/johndoe/foo.bar
 hobbies:
 - name: History
 - name: Sport

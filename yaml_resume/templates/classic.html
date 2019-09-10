@@ -3,23 +3,23 @@
         <title>{{ resume.contact.name }}'s resume</title>
         <style type="text/css">
             * { margin: 0; padding: 0; }
-            body { font: 16px Helvetica, Sans-Serif; line-height: 24px; }
+            body { font: 14px Helvetica, Sans-Serif; line-height: 20px; }
             .clear { clear: both; }
             .page-wrap { width: 750px; margin: 40px auto 60px; }
             .pic { float: right; margin: -30px 0 0 0; max-height: 300px; }
 			.centered { text-align: center; }
-			.tags { font-family: Georgia, Serif; font-size: 16px; color: #999; padding-bottom: 5px;}
             h1 { margin: 0 0 12px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
-            h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
-            h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
+            h2 { font-size: 18px; margin: 0 0 6px 0; position: relative; }
+            h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; color: #999; font-weight: normal; }
             p { margin: 0 0 16px 0; }
             a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
             a:hover { border-bottom-style: solid; color: black; }
             ul { margin: 0 0 0 17px; }
-            dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 100px; float: left; }
+            dt { font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 100px; float: left; }
             dd { width: 600px; float: right; }
             dd.item { padding-left: 20px; border-left: 1px solid #999;  }
             dd.clear { float: none; margin: 0; height: 15px; }
+			.tags { font-family: Georgia, Serif; font-size: 16px; color: #999; padding-bottom: 5px;}
         </style>
 	</head>
 	<body>
@@ -48,14 +48,15 @@
 			<dd class="item">
 				<h2>{{ e.company }} - {{ e.position }}<span>{{ e.start_date }}-{% if not e.end_date %}today{% else %}{{ e.end_date }}{% endif %}</span></h2>
 				<ul>{% for line in e.summary.split('\n')[:-1] %}<li>{{ line }}</li>{% endfor %}</ul>
-				<div class="tags">-{% for tag in e.tags %} {{ tag }} -{% endfor %}</div>
+				{% if e.tags %}<div class="tags">-{% for tag in e.tags %} {{ tag }} -{% endfor %}</div>{% endif %}
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
 			<dt>Education</dt>
 			{% for d in resume.education %}
 			<dd class="item">
-				<h2>{{ d.institution }} - {{ d.degree }}<span>{{ d.start_date }}-{% if not d.end_date %}today{% else %}{{ d.end_date }}{% endif %}</span></h2>
+				<h2>{{ d.institution }}<span>{{ d.start_date }}-{% if not d.end_date %}today{% else %}{{ d.end_date }}{% endif %}</span></h2>
+				<p>{{ d.degree }}</p>
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
