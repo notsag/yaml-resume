@@ -1,8 +1,9 @@
 from yaml_resume.cli import cli
+from click import ClickException
 from click.testing import CliRunner
 from .scenarios import SCENARIO_VALID
 import logging
-import filecmp
+import pytest
 
 
 def test_usage():
@@ -35,6 +36,7 @@ def test_validate():
     assert result.exit_code == 0
 
 
+@pytest.mark.xfail(raises=ClickException)
 def test_fail_validate():
     """
     Yaml file with single 'contact:' line should return an error
@@ -44,37 +46,54 @@ def test_fail_validate():
         out.write("contact:")
     runner = CliRunner()
     result = runner.invoke(cli, ["validate", wrongfile])
-    assert result.exit_code != 0
 
 
-def test_export_html():
+@pytest.mark.parametrize(
+    "extension, theme",
+    [
+        ("html", "classic"),
+        ("html", "material"),
+        ("pdf", "classic"),
+        ("pdf", "material"),
+    ],
+)
+def test_export(extension, theme):
     """
-    Test that exported is the same as expected.
-    """
-    runner = CliRunner()
-    result = runner.invoke(cli, ["export", "sample.yml"])
-    expected = "examples/resume.html"
-    exported = "resume.html"
-    assert result.exit_code == 0
-    assert filecmp.cmp(exported, expected)
-
-
-def test_export_pdf():
-    """
-    Test that exported is the same as expected.
+    Test exporting files to html/pdf
     """
     runner = CliRunner()
+    export = "{}.{}".format(theme, extension)
     result = runner.invoke(
-        cli, ["export", "sample.yml", "-e", "pdf", "-i", "docs/_static/yaml-resume.png"]
+        cli,
+        [
+            "export",
+            "sample.yml",
+            "-e",
+            extension,
+            "-i",
+            "sample_id.png",
+            "-t",
+            theme,
+            "-o",
+            theme,
+        ],
     )
+    expected = "examples/{}".format(export)
+    exported = export
     assert result.exit_code == 0
 
 
-def test_fail_export():
+@pytest.mark.xfail(raises=ClickException)
+@pytest.mark.parametrize(
+    "options",
+    [
+        ["export", "tests/wrong.html"],
+        ["export", "sample.yml", "-e", "html", "-t", "material"],
+    ],
+)
+def test_fail_export(options):
     """
-    Yaml file with single 'contact:' line should return an error
+    Test export failures.
     """
-    wrongfile = "tests/wrong.yml"
     runner = CliRunner()
-    result = runner.invoke(cli, ["export", wrongfile])
-    assert result.exit_code != 0
+    result = runner.invoke(cli, options)

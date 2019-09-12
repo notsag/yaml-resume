@@ -1,0 +1,171 @@
+<html>
+	<head>
+        <title>{{ resume.contact.name }}'s resume</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <style type="text/css">
+            * { margin: 0; padding: 0; font-family: Roboto; font-size: 10pt; -webkit-print-color-adjust: exact; }
+			a {text-decoration: none; }
+			h1 { font-size: 18pt; line-height: 40pt; font-weight: 400; text-align: center; text-transform: uppercase; letter-spacing: 10px; }
+			h2 { font-size: 14pt; line-height: 30pt; font-weight: 200; text-align: center; text-transform: uppercase; }
+			.page-wrap { width: 21cm; height: 29.68cm; display: block; background-color: #ccc;}
+			.fa { font-size: 16pt; }
+			.left-col { width: 35%; height: 100%; float: left; background-color: #16151c; color: rgba(255, 255, 255, 0.59); }
+			.pic { max-height: 300px; width: 100%; }
+			.left-section { display: inline-block; width: 100%; }
+			.left-section > h2 { margin-left: 20px; margin-top: 15px; text-align: left; }
+			.left-item { width: 100%; margin-top: 5px; margin-bottom: 5px; }
+			.left-item > .icon { width:20%; text-align: center; margin-left: -10px; font-family: Material Icons;}
+			.left-item > .content { width: 80%; margin-top: -20px; margin-left: 35px; }
+			.left-item > .content > a { color: rgba(255, 255, 255, 0.59); }
+			.left-item > strong { line-height: 25px; margin-left: 10px; }
+			.tags { font-size: 9pt; color: rgba(63, 61, 60, 0.7098039215686275); padding-bottom: 5px; margin: 10px 0 -5px 5px; }
+			.gauge { height: 10px; margin-left: 10px; margin-right: 10px; background: #555; -moz-border-radius: 25px; -webkit-border-radius: 25px;	border-radius: 25px; }
+			.gauge > span { display: block; height: 100%; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; background-color: rgba(255, 255, 255, 0.59); }
+			.right-col { width: 63.5%; height: 100%; float: right; }
+			.title { padding-left: 20px; padding-top: 20px; }
+			.title > h2 { margin-top: 10px; color: rgba(63, 61, 60, 0.7098039215686275); }
+			.right-section > h2 { text-align: left; margin-top: 40px; }
+			.right-section > .right-item { width: 90%; position: relative; background-color: #fff; padding: 20px 20px 15px 20px; margin-top: 5px; margin-bottom: 5px; display: inline-block; }
+			.headline { font-size: 12pt; font-weight: 300; margin-top: -5px;}
+			.subheadline { color: rgba(63, 61, 60, 0.7098039215686275); margin-bottom: 10px; }
+			.right-item > .content > li { margin-left: 20px; }
+			.subheadline > a { color: rgba(63, 61, 60, 0.7098039215686275); }
+        </style>
+	</head>
+	<body>
+        <div class="page-wrap">
+			<div class="left-col">
+				<img src="file:///{{ image }}" alt="Photo" class="pic" />
+				<div class="left-section">
+					<h2>Contact</h2>
+					<ul>
+						<li class="left-item">
+							<div class="icon"><i class="material-icons">account_circle</i></div>
+							<div class="content">Born: {{ resume.contact.date_of_birth }}</div>
+						</li>
+						<li class="left-item">
+							<div class="icon"><i class="material-icons">location_city</i></div>
+							<div class=content>{{ resume.contact.location.address }}<br/>
+								{% if resume.contact.location.zip %}
+								{{ resume.contact.location.zip }}
+								{% endif %}{{ resume.contact.location.city }}<br/>
+								{% if resume.contact.location.country %}
+								{{ resume.contact.location.country }}
+								{% endif %}
+							</div>
+						</li>
+						<li class="left-item">
+							<div class="icon"><i class="material-icons">phone</i></div>
+							<div class="content">{{ resume.contact.phone }}</div>
+						</li>
+						<li class="left-item">
+							<div class="icon"><i class="material-icons">email</i></div>
+							<div class="content"><a href="mailto:{{ resume.contact.email }}">{{ resume.contact.email }}</a></div>
+						</li>
+						{% for p in resume.profiles %}
+						<li class="left-item">
+							{% if p.network|upper == "GITHUB" %}
+							<div class="icon"><i class="fa fa-github"></i></div>
+							{% elif p. network|upper == "GITLAB" %}
+							<div class="icon"><i class="fa fa-gitlab"></i></div>
+							{% elif p. network|upper == "FACEBOOK" %}
+							<div class="icon"><i class="fa fa-facebook"></i></div>
+							{% elif p. network|upper == "TWITTER" %}
+							<div class="icon"><i class="fa fa-twitter"></i></div>
+							{% else %}
+							<div class="icon"><i class="material-icons">language</i></div>
+							{% endif %}
+							<div class="content"><a href="{{ p.url }}">{{ p.url }}</a></div>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="left-section">
+					<h2>Skills</h2>
+					{% for s in resume.skills %}
+					<div class="left-item">
+						<strong>{{ s.name }}</strong>
+						<div class="gauge">
+							<span style="width: {{ s.level }}%"></span>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="left-section">
+					<h2>Languages</h2>
+					{% for l in resume.languages %}
+					<div class="left-item">
+						<strong>{{ l.name }}: </strong>&nbsp {{ l.level }}
+					</div>
+					{% endfor %}
+				</div>
+				<div class="left-section">
+					<h2>Hobbies</h2>
+					{% for h in resume.hobbies %}
+					<div class="left-item">
+						<strong>{{ h.name }}: </strong>&nbsp {{ h.details }}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="right-col">
+				<div class="title">
+					<h1>{{ resume.contact.name }}</h1>
+					<h2>{{ resume.contact.job }}</h2>
+				</div>
+				<div class="right-section">
+					<h2>Experiences</h2>
+					{% for e in resume.experiences %}
+					<div class="right-item">
+						<div class="headline">{{ e.position }} - {{ e.company }}</div>
+						<div class="subheadline">
+						{{ e.start_date }} - {% if not e.end_date %}Today{% else %}{{ e.end_date }}{% endif %}
+						</div>
+						<ul class="content">
+							{% for line in e.summary.split('\n')[:-1] %}
+							<li>{{ line }}</li>
+							{% endfor %}
+						</ul>
+						{% if e.tags %}
+						<div class="tags">
+							-{% for tag in e.tags %} {{ tag }} -{% endfor %}
+						</div>
+						{% endif %}
+					</div>
+					{% endfor %}
+				</div>
+				<div class="right-section">
+					<h2>Education</h2>
+					{% for d in resume.education %}
+					<div class="right-item">
+						<div class="headline">{{ d.degree }}</div>
+						<div class="subheadline">
+						{{ d.start_date }} - {% if not d.end_date %}Today{% else %}{{ d.end_date }}{% endif %}
+						</div>
+						<div class="content">
+						{{ d.institution }}
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				{% if resume.projects %}
+				<div class="right-section">
+					<h2>Projects</h2>
+					{% for p in resume.projects %}
+					<div class="right-item">
+						<div class="headline">{{ p.name }}</div>
+						<div class="subheadline">
+							{% if p.url %}<a href="{{ p.url }}">{{ p.url }}</a>{% endif %}
+						</div>
+						<div class="content">
+						{{ p.description }}
+						</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+			</div>
+    	</div>
+	</body>
+</html>

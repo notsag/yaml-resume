@@ -6,6 +6,11 @@ from weasyprint import HTML, CSS
 from . import validator
 from .resume import Resume
 
+THEMES = {
+    "classic": "optional",
+    "material": "mandatory",
+}  # optional or mandatory depending if the theme must have an profile picture
+
 
 def no_tag(self, *args, **kw):
     """Drop tag in yaml.dump()
@@ -89,7 +94,7 @@ def validate(filename):
     "-t",
     "--theme",
     default="classic",
-    type=click.Choice(["classic"]),
+    type=click.Choice(THEMES),
     help="Name of the theme to use.",
 )
 @click.option(
@@ -117,23 +122,29 @@ def export(filename, theme, extension, image, output):
     :raises: ClickException
 
     """
+    if THEMES[theme] == "mandatory" and not image:
+        error = (
+            "Material theme MUST have an image for profile picture."
+            + "\nYou should add the following parameter :\n"
+            + "\t--image <path-to-png>"
+        )
+        raise click.ClickException(error)
     (result, errors) = validator.validate(filename)
     if not result:
-        click.echo("Cannot export: resume is malformed.")
         raise click.ClickException(errors)
     else:
         env = Environment(loader=PackageLoader("yaml_resume", "templates"))
         resume = yaml.load(open(filename, "r"), yaml.SafeLoader)
         template = env.get_template("{}.html".format(theme))
+        if image:
+            image = os.path.abspath(image)
         if extension == "html":
             with open("{}.{}".format(output, extension), "w") as outfile:
                 outfile.write(template.render(resume=resume, image=image))
             outfile.close()
         else:
-            if image:
-                image = os.path.abspath(image)
             html = HTML(string=template.render(resume=resume, image=image))
-            css = CSS(string="@page { size: A4; margin: 0.5cm }")
+            css = CSS(string="@page { size: A4; margin: 0cm }")
             html.write_pdf("{}.{}".format(output, extension), stylesheets=[css])
 
 

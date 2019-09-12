@@ -3,34 +3,37 @@
         <title>John Doe's resume</title>
         <style type="text/css">
             * { margin: 0; padding: 0; }
-            body { font: 14px Helvetica, Sans-Serif; line-height: 20px; }
+            body { font: 10pt Helvetica, Sans-Serif; }
             .clear { clear: both; }
-            .page-wrap { width: 750px; margin: 40px auto 60px; }
+            .page-wrap { width: 21cm; height: 29.68cm; }
             .pic { float: right; margin: -30px 0 0 0; max-height: 300px; }
 			.centered { text-align: center; }
-            h1 { margin: 0 0 12px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
-            h2 { font-size: 18px; margin: 0 0 6px 0; position: relative; }
+			.title { margin-left: 20px; margin-right: 20px; margin-top: 30px; }
+            h1 { margin: 0 0 12px 0; padding: 0 0 16px 0; font-size: 28pt; font-weight: bold; border-bottom: 1px solid #999; }
+            h2 { font-size: 14pt; margin: 0 0 6px 0; position: relative; }
             h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; color: #999; font-weight: normal; }
             p { margin: 0 0 16px 0; }
-            a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
-            a:hover { border-bottom-style: solid; color: black; }
+            a { color: #999; text-decoration: none; }
             ul { margin: 0 0 0 17px; }
-            dt { font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 100px; float: left; }
-            dd { width: 600px; float: right; }
-            dd.item { padding-left: 20px; border-left: 1px solid #999;  }
-            dd.clear { float: none; margin: 0; height: 15px; }
-			.tags { font-family: Georgia, Serif; font-size: 16px; color: #999; padding-bottom: 5px;}
+            dl: {width: 100%; }
+			li: { line-height: 20px; }
+            dt { font-weight: bold; font-size: 14pt; text-align: right; padding: 0 26px 0 0; width: 15%; float: left; padding-top: 5px; }
+            dd { width: 75%; float: right; margin-right: 20px; }
+            dd.item { padding-left: 20px; padding-top: 5px; border-left: 1px solid #999;  }
+            dd.clear { float: none; margin: 0; height: 25px; }
+			.tags { font-family: Georgia, Serif; font-size: 10pt; color: #999; padding-bottom: 5px;}
+			.subtitle { font-size: 11pt; }
         </style>
 	</head>
 	<body>
         <div class="page-wrap">
-            
-			<div>
-				<div class="centered">
+            <img src="file:////home/mgaston/Sources/yaml-resume/sample_id.png" alt="Photo" class="pic" />
+			<div class="title">
+				<div >
 					<h1>John Doe</h1>
 					<h2>Python Developer</h2>
 				</div>
-                <p style="padding-left: 200px;">
+                <p >
 				<strong>Born:</strong> 	01/01/1990<br/>
 				<strong>Address:</strong> 10 Downing Street, SW1A 2AA London UK<br/>
                 <strong>Phone:</strong> 	+44612345678<br />
@@ -50,19 +53,19 @@
 			<dt>Experience</dt>
 			
 			<dd class="item">
-				<h2>Foo company - Senior Python Developer<span>January 2018-today</span></h2>
+				<h2>Foo company - Senior Python Developer<span class="subtitle">January 2018 - Today</span></h2>
 				<ul><li>Developer for the main Foo webapp</li><li>Worked on migration from python 2.7 to 3.6</li><li>Scrum master for the team of 8 people</li><li>Added automated unit tests</li></ul>
 				<div class="tags">- flask - mongodb - redis - pytest - scrum -</div>
 			</dd>
 			
 			<dd class="item">
-				<h2>Bar company - Python developer<span>January 2014-December 2017</span></h2>
+				<h2>Bar company - Python developer<span class="subtitle">January 2014 - December 2017</span></h2>
 				<ul><li>Made Bar backoffice main features</li><li>Worked on CI/CD</li></ul>
 				<div class="tags">- django - mysql - jenkins -</div>
 			</dd>
 			
 			<dd class="item">
-				<h2>Bar company - Junior python developer<span>January 2012-December 2013</span></h2>
+				<h2>Bar company - Junior python developer<span class="subtitle">January 2012 - December 2013</span></h2>
 				<ul><li>Made multiple KPI dashboards</li><li>Provided automation scripts</li></ul>
 				
 			</dd>
@@ -71,7 +74,7 @@
 			<dt>Education</dt>
 			
 			<dd class="item">
-				<h2>University of California, Berkeley<span>January 2008-January 2012</span></h2>
+				<h2>University of California, Berkeley<span class="subtitle">January 2008 - January 2012</span></h2>
 				<p>Bachelor of Software Engineering</p>
 			</dd>
 			
@@ -80,33 +83,33 @@
 			
 			<dd class="item">
 				<h2>Python
-				<span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span></h2>
+				<span class="subtitle">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;</span></h2>
 			</dd>
 			
 			<dd class="item">
 				<h2>Flask
-				<span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;</span></h2>
+				<span class="subtitle">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;</span></h2>
 			</dd>
 			
 			<dd class="item">
 				<h2>Scrum
-				<span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;</span></h2>
+				<span class="subtitle">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;</span></h2>
 			</dd>
 			
 			<dd class="item">
 				<h2>Java
-				<span>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;</span></h2>
+				<span class="subtitle">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;</span></h2>
 			</dd>
 			
 			<dd class="clear"></dd>
 			<dt>Languages</dt>
 			
 			<dd class="item">
-				<h2>English<span>Native language</span></h2>
+				<h2>English<span class="subtitle">Native language</span></h2>
 			</dd>
 			
 			<dd class="item">
-				<h2>French<span>Proficient</span></h2>
+				<h2>French<span class="subtitle">Proficient</span></h2>
 			</dd>
 			
 			<dd class="clear"></dd>
@@ -114,7 +117,7 @@
 			<dt>Projects</dt>
 			
 			<dd class="item">
-				<h2>foo.bar: <span><a href="https://github.com/johndoe/foo.bar">https://github.com/johndoe/foo.bar</a></span></h2>
+				<h2>foo.bar: <span class="subtitle"><a href="https://github.com/johndoe/foo.bar">https://github.com/johndoe/foo.bar</a></span></h2>
 				<p>Just an useless app</p>
 			</dd>
 			
@@ -123,11 +126,11 @@
 			<dt>Hobbies</dt>
 			
 			<dd class="item">
-				<h2>History<span></span></h2>
+				<h2>History<span class="subtitle"></span></h2>
 			</dd>
 			
 			<dd class="item">
-				<h2>Sport<span>Running and weightlifting</span></h2>
+				<h2>Sport<span class="subtitle">Running and weightlifting</span></h2>
 			</dd>
 			
 			<dd class="clear"></dd>
