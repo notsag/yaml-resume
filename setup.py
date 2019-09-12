@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
+import re
 from setuptools import setup
 
 with open("README.md") as f:
     README = f.read()
+
+with open("yaml_resume/__init__.py") as f:
+    version = re.search(r'__version__ = "(.*?)"', f.read()).group(1)
 
 setup(
     name="yaml-resume",
@@ -11,7 +15,7 @@ setup(
     description="Command line interface to build/validate YAML resumes",
     long_description=README,
     long_description_content_type="text/markdown",
-    version="0.7.2",
+    version=version,
     url="http://github.com/notsag/yaml-resume",
     author="Maxime GASTON",
     author_email="maxime@gaston.sh",

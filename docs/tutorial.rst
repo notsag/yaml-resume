@@ -59,7 +59,7 @@ The global schema shows the different sections and restrictions including subsch
 .. literalinclude:: ../yaml_resume/validator/schema.py
     :language: python
     :linenos:
-    :lines: 78-127
+    :lines: 69-118
 
 Subschemas
 ``````````
@@ -70,7 +70,7 @@ For example:
 .. literalinclude:: ../yaml_resume/validator/schema.py
     :language: python
     :linenos:
-    :lines: 64-75
+    :lines: 55-67
 
 Regular expressions
 ```````````````````
