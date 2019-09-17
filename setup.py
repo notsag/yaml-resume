@@ -12,6 +12,7 @@ with open("yaml_resume/__init__.py") as f:
 setup(
     name="yaml-resume",
     packages=["yaml_resume", "yaml_resume.resume", "yaml_resume.validator"],
+    package_data={"yaml_resume": ["templates/*.html"]},
     description="Command line interface to build/validate YAML resumes",
     long_description=README,
     long_description_content_type="text/markdown",
