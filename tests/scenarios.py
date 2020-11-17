@@ -1,5 +1,5 @@
 SCENARIO_VALID = {
-    "file": "tests/valid.yml",
+    "file": "test-results/valid.yml",
     "answers": [
         "John Doe",  # name
         "01/01/1990",  # dote of birth

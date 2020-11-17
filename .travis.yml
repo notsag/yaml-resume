@@ -1,31 +1,48 @@
 language: python
 dist: xenial
+git:
+  depth: false
 env:
+  matrix:
   - LINTER_CMD="black --check yaml_resume"
 matrix:
   include:
-    - python: 3.5
-      env:
-        - LINTER_CMD="echo 'Black not available on Python3.5'"
-    - python: 3.6
-      before_install:
-        - pip install black
-    - python: 3.7
-      before_install:
-        - pip install black
-    - python: 3.8-dev
-      before_install:
-        - pip install black
-    - python: pypy3
-      env:
-        - LINTER_CMD="echo 'Black not available on pypy'"
+  - python: 3.5
+    env:
+    - LINTER_CMD="echo 'Black not available on Python3.5'"
+  - python: 3.6
+    before_install:
+    - pip install black
+  - python: 3.7
+    before_install:
+    - pip install black
+  - python: 3.8
+    before_install:
+    - pip install black
+  - python: pypy3
+    env:
+    - LINTER_CMD="echo 'Black not available on pypy'"
   allow_failures:
-    - python: 3.8-dev
+  - python: 3.8-dev
 install:
-  - pip install -r requirements.txt
-  - pip install pytest-cov codecov
+- pip install -r requirements.txt
+- pip install pytest-cov codecov
+addons:
+  sonarcloud:
+    organization: notsag
+    token:
+      secure: "WlHupxxuRgC34i+e+fLATfVfGneKg3HBLkMNlsT8Dsk5a8bYDYUh4hUPDJqVPk8hNoex2c+02KK0gtpuJ3pEfDEgxNhkFgfRZJqHv+bd/H0cESfPp6dECIY6UQUU61KF0bT+XaqtBZQ6WASYgL+3h0s08COPhkdGk71La7lSqN5iLVOre5S1fHUm0EEcMbrhVQI9G1iHl1Wg99FSpIt5iKqbrSJPQgqRVtMIihhvaiwYh9hLsXip45rMHek6LdelqPG3r+omMKuiGROIapYZQ2unTbEiU46kCkY380MYjhEUo1nUdK8+IrcCkJLlsttOtDpF1JPGRFUF4LpyuzuQw2x1exsymMFCIsggXPMa/ecDLYZwvtbCk72ntjEsF6awPZuIFsUk87R98tjcbZ41sK3upTLb2EvnntPwnUvo9Y2XVeZXFZEYll8cV0+aCFbNU1TBK3xbALpfA7Nd8DglTNhMxkRhcqU494wCDDQGA6ddIYFJJFZuOeIDBcofsnYDJY2CcQi5QK/p+xI4/WXuY+K/Vz1wlw9a0fO00BCkaY7sKVQpnd9PafFK8loElPZ3nL6yUN1AfZkdc8Vd57TTvfd63pUL5aKHIWCXm4l5xXCX4/sTIg8KgZzbyyka4DCxbagAL/lT36q6dJZgpMBUHi9k1OSj75JKRSZQqXdw41A="
 script:
-  - $LINTER_CMD
-  - python -m pytest --cov=yaml_resume tests/
+- "$LINTER_CMD"
+- python -m pytest --cov=yaml_resume --cov-report xml:test-results/coverage.xml --junitxml=test-results/junit.xml
+  tests/
+- sonar-scanner
 after_success:
-  - codecov
+- codecov
+deploy:
+  provider: pypi
+  username: __token__
+  password:
+    secure: PPJo6DxqEWrrYzqioy7QkQmosgJun4s/eBesbmdgKwqokNnWWxnP3TzayT5s6/M5KZHtTdirlpxZJ6HtsOKhwmDliQu2zHa96M5cAdkdSRbqKdO5HfTABcXo9j+TTmJYBuxytQxxS1ler+gc7D+6WpvonD6JB6/qv+jibmBbTeV+xvIPpTqJ6Zt3Xcxkmthd1ljsf0lLj165QiQqRoQp/bPnBMAtovSbGXP3DbgufLHcRPEmWo7ak022jH+a6oy8CSOKisNTNXP0lppBO+pu/11j9ErEZbW46/D2bQP/xFqPipgnHYMxSrSoJda4GI4u8GwZECkKIyIz+kAC+/cXAe3o0Bb7O0H9qHGCaOKHy4B8qkgQUAJXK9HWPcfHv+CnO9vBQUsodtdRXxj0sFvbGM7i/VgA36NrELy4j2ref7ySFjoHkPzo0EO8Pv/3Ad++J4u4AiND37V/0LuTaqDub3fWBOjkBpqGLcqIMSWVPbmlktS9YE1rZtygdXbyX35QocLfb6x6Z0YncF161+yY9dUL/LShdpWy4+g3SGoaIUMvLhcAmHyAel+n8OcyBTY65BNlEKWTDSURiBWBC/YHVQPO03zDKtWJWwqno82Cn2E15WFBl/lJdijPs/0iSzPpxJxMhA3MZiu0MT1q06Z8phFRPba5FxoidWblh/JKEPk=
+  on:
+    tags: true

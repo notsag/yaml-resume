@@ -41,11 +41,11 @@ def test_fail_validate():
     """
     Yaml file with single 'contact:' line should return an error
     """
-    wrongfile = "tests/wrong.yml"
+    wrongfile = "test-results/wrong.yml"
     with open(wrongfile, "w") as out:
         out.write("contact:")
     runner = CliRunner()
-    result = runner.invoke(cli, ["validate", wrongfile])
+    runner.invoke(cli, ["validate", wrongfile])
 
 
 @pytest.mark.parametrize(
@@ -62,7 +62,7 @@ def test_export(extension, theme):
     Test exporting files to html/pdf
     """
     runner = CliRunner()
-    export = "{}.{}".format(theme, extension)
+    export = "test-results/{}.{}".format(theme, extension)
     result = runner.invoke(
         cli,
         [
@@ -75,11 +75,11 @@ def test_export(extension, theme):
             "-t",
             theme,
             "-o",
-            theme,
+            export,
         ],
     )
-    expected = "examples/{}".format(export)
-    exported = export
+    # expected = "examples/{}".format(export)
+    # exported = export
     assert result.exit_code == 0
 
 
@@ -87,7 +87,7 @@ def test_export(extension, theme):
 @pytest.mark.parametrize(
     "options",
     [
-        ["export", "tests/wrong.html"],
+        ["export", "test-results/wrong.html"],
         ["export", "sample.yml", "-e", "html", "-t", "material"],
     ],
 )
@@ -96,4 +96,4 @@ def test_fail_export(options):
     Test export failures.
     """
     runner = CliRunner()
-    result = runner.invoke(cli, options)
+    runner.invoke(cli, options)
