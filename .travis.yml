@@ -7,9 +7,6 @@ env:
   - LINTER_CMD="black --check yaml_resume"
 matrix:
   include:
-  - python: 3.5
-    env:
-    - LINTER_CMD="echo 'Black not available on Python3.5'"
   - python: 3.6
     before_install:
     - pip install black
