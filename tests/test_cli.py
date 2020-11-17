@@ -62,7 +62,7 @@ def test_export(extension, theme):
     Test exporting files to html/pdf
     """
     runner = CliRunner()
-    export = "test-results/{}.{}".format(theme, extension)
+    export = "test-results/{}".format(theme)
     result = runner.invoke(
         cli,
         [
