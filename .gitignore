@@ -123,3 +123,6 @@ venv.bak/
 
 # test files
 test-results/*
+
+# sonar
+.scannerwork/
