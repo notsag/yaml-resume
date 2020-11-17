@@ -86,6 +86,7 @@ class Contact(yaml.YAMLObject):
         self.phone = phone
         self.location = location
 
+    @staticmethod
     def ask():
         """Interactively create a Contact object.
 
@@ -102,6 +103,7 @@ class Contact(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return Contact(name, date_of_birth, job, email, phone, location)
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns a Contact object.
 
