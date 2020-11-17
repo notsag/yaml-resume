@@ -133,7 +133,9 @@ def export(filename, theme, extension, image, output):
     if not result:
         raise click.ClickException(errors)
     else:
-        env = Environment(loader=PackageLoader("yaml_resume", "templates"))
+        env = Environment(
+            loader=PackageLoader("yaml_resume", "templates"), autoescape=True
+        )
         resume = yaml.load(open(filename, "r"), yaml.SafeLoader)
         template = env.get_template("{}.html".format(theme))
         if image:
