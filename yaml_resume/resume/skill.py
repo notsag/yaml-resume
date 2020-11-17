@@ -18,6 +18,7 @@ class Skill(yaml.YAMLObject):
         self.name = name
         self.level = level
 
+    @staticmethod
     def ask():
         """Interactively create the skills section of a resume.
 
@@ -39,6 +40,7 @@ class Skill(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return skills
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns an Skill object
 

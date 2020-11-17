@@ -33,6 +33,7 @@ class Experience(yaml.YAMLObject):
         self.tags = tags
         self.website = website
 
+    @staticmethod
     def ask():
         """Interactively create the experience section of the resume.
 
@@ -65,6 +66,7 @@ class Experience(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return experiences
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns an Experience object.
 

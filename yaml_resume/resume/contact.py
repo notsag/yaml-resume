@@ -27,6 +27,7 @@ class Location(yaml.YAMLObject):
         self.state = state
         self.country = country
 
+    @staticmethod
     def ask():
         """Interactively create a Location object.
 
@@ -40,6 +41,7 @@ class Location(yaml.YAMLObject):
         country = click.prompt("Country (optional)", default="")
         return Location(address, city, zipcode, state, country)
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns a Location object.
 

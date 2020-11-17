@@ -18,6 +18,7 @@ class Hobby(yaml.YAMLObject):
         self.name = name
         self.details = details
 
+    @staticmethod
     def ask():
         """Interactively create the hobbies section of a resume.
 
@@ -36,6 +37,7 @@ class Hobby(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return hobbies
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns a Hobby object.
 

@@ -54,6 +54,7 @@ class Resume(yaml.YAMLObject):
         self.projects = projects
         self.hobbies = hobbies
 
+    @staticmethod
     def ask():
         """Interactively create a Resume object.
 
@@ -88,6 +89,7 @@ class Resume(yaml.YAMLObject):
             hobbies,
         )
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns a Resume object.
 

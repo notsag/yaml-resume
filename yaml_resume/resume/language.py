@@ -18,6 +18,7 @@ class Language(yaml.YAMLObject):
         self.name = name
         self.level = level
 
+    @staticmethod
     def ask():
         """Interactively create the language section of the resume.
 
@@ -36,6 +37,7 @@ class Language(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return languages
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns an Language object.
 
