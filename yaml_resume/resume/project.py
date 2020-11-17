@@ -20,6 +20,7 @@ class Project(yaml.YAMLObject):
         self.description = description
         self.url = url
 
+    @staticmethod
     def ask():
         """Interacively create the Projects section of a resume.
 
@@ -39,6 +40,7 @@ class Project(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return projects
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns a Project object.
 

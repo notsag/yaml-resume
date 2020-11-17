@@ -27,6 +27,7 @@ class Degree(yaml.YAMLObject):
         self.end_date = end_date
         self.website = website
 
+    @staticmethod
     def ask():
         """Interactively create the education section of a resume.
 
@@ -50,6 +51,7 @@ class Degree(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return education
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns an Degree object.
 

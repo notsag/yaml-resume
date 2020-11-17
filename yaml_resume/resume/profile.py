@@ -18,6 +18,7 @@ class Profile(yaml.YAMLObject):
         self.network = network
         self.url = url
 
+    @staticmethod
     def ask():
         """Interactively create a Profile object.
 
@@ -36,6 +37,7 @@ class Profile(yaml.YAMLObject):
             correct = click.confirm("Is this correct?")
         return profiles
 
+    @staticmethod
     def load(data):
         """Load dictionary and returns a Profile object
 
