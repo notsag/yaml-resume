@@ -32,7 +32,7 @@ addons:
       secure: ZnG/Sw1Av2ksvJc3IB8SlqlPVgegBTv5bBFrOfsZgz13S8fbmsm53Nr+ZneRPA/KU1mHByL6IcTH8K2yu3bfONXI5ameylQYT+7JC2mOMc98wqEqEgA0Zh3i4mYgSM+MoIG2PBHYPpX2Rlig8npyNRGI3NwABxTVC1Ei/ZudSICf/4dNTD7O8zs7XHeyMOdj31ixpToLSTYlG/0J0QoAH8mhJ/j44t+GXt1zl5UIt1Iz6A5VjA3HYPDMtcTgnhSxWQ2LzwD2A9KHiwrnU6pUvzgnPUUBGUr81YxQVq+z3ihZjBM4L9YnUsjs6voCAiYbf8W6xIsnW/cvE9PYRqbMVmnv9a0JLsIYVFC9CDOYphrSlsiAjb6LbhAqONRm32Pgyrax/T+ONuBeluew/jLNbWvQ1CymZkStO9nfusJkks8S8Co4Gfe2vDJdwZ64eXmORda4pMPrlURy/LHMLfqemYJFOZnnPuK7qDzHwoRUk9SBSLRT1gY/5UCr2voy8YsAShxZs+Azbjw68wy5goTfV+wFweKyNAK+LRUnsPAbIWSDtVfMExU3JAQOGZBth969/EAglR99shRLwz6oVA0MFUrrDxvQlvYPUR0n5V04Jn6NtIv8ODhzty6BvKvRRO1w4MP8LkQ9CNBnnHDKgEV5erEdvsMYJWU6FBnnQXfXUeo=
 script:
 - "$LINTER_CMD"
-- python -m pytest --cov=yaml_resume tests/
+- python -m pytest --cov=yaml_resume --cov-report xml:test-results/coverage.xml --junitxml=test-results/junit.xml tests/
 - sonar-scanner
 after_success:
 - codecov
