@@ -34,8 +34,6 @@ script:
 - python -m pytest --cov=yaml_resume --cov-report xml:test-results/coverage.xml --junitxml=test-results/junit.xml
   tests/
 - sonar-scanner
-after_success:
-- codecov
 deploy:
   provider: pypi
   username: __token__
