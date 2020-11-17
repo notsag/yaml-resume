@@ -35,6 +35,7 @@ script:
   tests/
 - sonar-scanner
 deploy:
+  skip_existing: true
   provider: pypi
   username: __token__
   password:
