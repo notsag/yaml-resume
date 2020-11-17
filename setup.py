@@ -17,7 +17,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     version=version,
-    url="http://github.com/notsag/yaml-resume",
+    url="https://github.com/notsag/yaml-resume",
     author="Maxime GASTON",
     author_email="maxime@gaston.sh",
     license="gpl-3.0",
