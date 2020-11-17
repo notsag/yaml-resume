@@ -1,5 +1,7 @@
 language: python
 dist: xenial
+git:
+  depth: false
 env:
   matrix:
   - LINTER_CMD="black --check yaml_resume"
