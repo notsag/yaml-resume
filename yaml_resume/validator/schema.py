@@ -55,6 +55,7 @@ location = {
 contact = {
     "name": {"type": "string"},
     "job": {"type": "string"},
+    "summary": {"required": False, "type": "string"},
     "date_of_birth": {"type": "string", "regex": DOB_REGEX},
     "email": {"type": "string", "regex": EMAIL_REGEX},
     "phone": {"type": "string", "regex": PHONE_NUMBER_REGEX},

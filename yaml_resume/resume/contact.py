@@ -67,6 +67,8 @@ class Contact(yaml.YAMLObject):
     :type date_of_birth: str
     :param job: The current or researched position.
     :type job: str
+    :param summary (`optional`): The carreer summary.
+    :type summary: str
     :param email: An email address.
     :type email: str
     :param phone: The phone number.
@@ -78,10 +80,11 @@ class Contact(yaml.YAMLObject):
 
     yaml_tag = u"Contact"
 
-    def __init__(self, name, date_of_birth, job, email, phone, location):
+    def __init__(self, name, date_of_birth, job, summary, email, phone, location):
         self.name = name
         self.date_of_birth = date_of_birth
         self.job = job
+        self.summary = summary
         self.email = email
         self.phone = phone
         self.location = location
@@ -97,11 +100,12 @@ class Contact(yaml.YAMLObject):
             name = click.prompt("Full name")
             date_of_birth = click.prompt("Date of birth (dd/mm/yyyy)")
             job = click.prompt("Job title")
+            summary = click.prompt("Career summary (optional)", default="")
             email = click.prompt("Email address")
-            phone = click.prompt("Phone number?")
+            phone = click.prompt("Phone number")
             location = Location.ask()
             correct = click.confirm("Is this correct?")
-        return Contact(name, date_of_birth, job, email, phone, location)
+        return Contact(name, date_of_birth, job, summary, email, phone, location)
 
     @staticmethod
     def load(data):
@@ -116,6 +120,7 @@ class Contact(yaml.YAMLObject):
             data.get("name"),
             data.get("date_of_birth"),
             data.get("job"),
+            data.get("summary"),
             data.get("email"),
             data.get("phone"),
             Location.load(data.get("location")),

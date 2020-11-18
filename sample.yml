@@ -3,6 +3,9 @@ contact:
   email: john@doe.com
   date_of_birth: 01/01/1990
   job: Python Developer
+  summary: |
+        Hi, my name is John and I'm a Python dev since 2012.
+        Please hire me!
   location:
     address: 10 Downing Street
     city: London

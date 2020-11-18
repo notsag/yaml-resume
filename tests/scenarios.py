@@ -4,6 +4,7 @@ SCENARIO_VALID = {
         "John Doe",  # name
         "01/01/1990",  # dote of birth
         "Captain",  # job
+        "I'm a Captain, hire me!",  # summary
         "john@doe.com",  # email
         "+33600000000",  # phone
         "10 Downing Street",  # address
