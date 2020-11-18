@@ -1,4 +1,3 @@
-from pallets_sphinx_themes import ProjectLink, get_version
 import os
 import sys
 
@@ -10,11 +9,10 @@ project = "yaml-resume"
 copyright = "2019, Maxime GASTON"
 author = "Maxime GASTON"
 
-release, version = get_version("yaml-resume")
+version = "dev"
+extensions = ["sphinx.ext.autodoc"]
 
 # -- General configuration ---------------------------------------------------
-
-extensions = ["pallets_sphinx_themes", "sphinx.ext.autodoc"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -22,21 +20,10 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for HTML output -------------------------------------------------
 
-html_theme = "flask"
-
 html_static_path = ["_static"]
 html_logo = "_static/yaml-resume.png"
 html_title = "YAML Resume Documentation ({})".format(version)
 html_show_sourcelink = False
-html_context = {
-    "project_links": [
-        ProjectLink("YAML Resume Website", "https://yaml-resume.com"),
-        ProjectLink("PyPI releases", "https://pypi.org/project/yaml-resume/"),
-        ProjectLink("Source Code", "https://github.com/notsag/yaml-resume/"),
-        ProjectLink("Issue Tracker", "https://github.com/notsag/yaml-resume/issues/"),
-    ]
-}
 html_sidebars = {
-    "index": ["project.html", "localtoc.html", "searchbox.html"],
-    "**": ["localtoc.html", "relations.html", "searchbox.html"],
+    "**": ["globaltoc.html", "relations.html", "sourcelink.html", "searchbox.html"]
 }
