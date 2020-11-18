@@ -110,7 +110,7 @@ def export(filename, theme, extension, image, output):
     """cli subcommand to export a YAML resume to HTML or PDF
 
     This function is a subcommand of yaml-resume.
-    It exports the resume in html or css using a template.
+    It exports the resume in html or pdf using a template.
     \f
 
     :param filename: The name of the file to load.
