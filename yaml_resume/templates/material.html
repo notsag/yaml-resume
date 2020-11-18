@@ -8,31 +8,32 @@
         <style type="text/css">
             * { margin: 0; padding: 0; font-family: Roboto, sans-serif; font-size: 10pt; -webkit-print-color-adjust: exact; }
 			a {text-decoration: none; }
-			h1 { font-size: 18pt; line-height: 40pt; font-weight: 400; text-align: center; text-transform: uppercase; letter-spacing: 10px; }
-			h2 { font-size: 14pt; line-height: 30pt; font-weight: 200; text-align: center; text-transform: uppercase; }
-			.page-wrap { width: 21cm; height: 29.68cm; display: block; background-color: #ccc;}
+			h1 { font-size: 18pt; line-height: 25pt; font-weight: 900; text-align: center; text-transform: uppercase; letter-spacing: .1em; margin-top: 2em; }
+			h2 { font-size: 14pt; line-height: 30pt; font-weight: 900; text-align: center; text-transform: uppercase; }
+			.page-wrap { width: 21cm; height: 29.68cm; display: block; background-color: #9e9e9e; }
 			.fa { font-size: 16pt; }
-			.left-col { width: 35%; height: 100%; float: left; background-color: #16151c; color: rgba(255, 255, 255, 0.59); }
+			.left-col { width: 35%; height: 100%; float: left; background-color: #000; color: #fff; }
 			.pic { max-height: 300px; width: 100%; }
 			.left-section { display: inline-block; width: 100%; }
-			.left-section > h2 { margin-left: 20px; margin-top: 15px; text-align: left; }
+			.left-section > h2 { margin-left: 20px; margin-top: 15px; text-align: left; color: #fff; }
 			.left-item { width: 100%; margin-top: 5px; margin-bottom: 5px; }
-			.left-item > .icon { width:20%; text-align: center; margin-left: -10px; font-family: Material Icons, sans-serif;}
-			.left-item > .content { width: 80%; margin-top: -20px; margin-left: 35px; }
-			.left-item > .content > a { color: rgba(255, 255, 255, 0.59); }
-			.left-item > strong { line-height: 25px; margin-left: 10px; }
-			.tags { font-size: 9pt; color: rgba(63, 61, 60, 0.7098039215686275); padding-bottom: 5px; margin: 10px 0 -5px 5px; }
-			.gauge { height: 10px; margin-left: 10px; margin-right: 10px; background: #555; -moz-border-radius: 25px; -webkit-border-radius: 25px;	border-radius: 25px; }
-			.gauge > span { display: block; height: 100%; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; background-color: rgba(255, 255, 255, 0.59); }
+			.material-icons { width:20%; text-align: center; margin-left: -10px; font-family: Material Icons, sans-serif; color: #9e9e9e; }
+			.left-item > .icon { width:20%; text-align: center; margin-left: -10px; font-family: Material Icons, sans-serif; color: #9e9e9e; }
+			.left-item > .content { width: 80%; margin-top: -20px; margin-left: 35px; color: #9e9e9e; }
+			.left-item > .content > a { color: #9e9e9e; }
+			.left-item > strong { line-height: 25px; margin-left: 10px; color: #9e9e9e; }
+			.tags { font-size: 9pt; color: #9e9e9e; padding-bottom: 5px; margin: 10px 0 -5px 5px; }
+			.gauge { height: 10px; margin-left: 10px; margin-right: 10px; background: #9e9e9e; -moz-border-radius: 25px; -webkit-border-radius: 25px;	border-radius: 25px; }
+			.gauge > span { display: block; height: 100%; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; background-color: #fff; }
 			.right-col { width: 63.5%; height: 100%; float: right; }
 			.title { padding-left: 20px; padding-top: 20px; }
-			.title > h2 { margin-top: 10px; color: rgba(63, 61, 60, 0.7098039215686275); }
-			.right-section > h2 { text-align: left; margin-top: 40px; }
-			.right-section > .right-item { width: 90%; position: relative; background-color: #fff; padding: 20px 20px 15px 20px; margin-top: 5px; margin-bottom: 5px; display: inline-block; }
-			.headline { font-size: 12pt; font-weight: 300; margin-top: -5px;}
-			.subheadline { color: rgba(63, 61, 60, 0.7098039215686275); margin-bottom: 10px; }
+			.title > h2 { margin-top: 10px; margin-bottom: 2em; color: #fff; }
+			.right-section > h2 { text-align: left; margin-top: 1em; margin-left: 0.25em; color: #000; }
+			.right-section > .right-item { width: 90%; position: relative; background-color: #fff; padding: 20px 20px 15px 20px; margin-top: 5px; margin-bottom: 5px; display: inline-block; border-radius: 1em; -moz-border-radius: 1em; -webkit-border-radius: 1em; }
+			.headline { font-size: 12pt; font-weight: 300; margin-top: -5px; color: #000; }
+			.subheadline { color: #9e9e9e; margin-bottom: 10px; }
 			.right-item > .content > li { margin-left: 20px; }
-			.subheadline > a { color: rgba(63, 61, 60, 0.7098039215686275); }
+			.subheadline > a { color: #9e9e9e; }
         </style>
 	</head>
 	<body>
