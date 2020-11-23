@@ -17,10 +17,10 @@ experiences:
   position: Senior Python Developer
   start_date: January 2018
   summary: |
-        Developer for the main Foo webapp
-        Worked on migration from python 2.7 to 3.6
-        Scrum master for the team of 8 people
-        Added automated unit tests
+        Developer for the main Foo webapp.
+        I also worked on migration from python 2.7 to 3.6.
+        I've been scrum master for a team of 8 people.
+        I added automated unit tests to the codebase.
   website: https://foo.com
   tags:
   - flask
@@ -33,8 +33,8 @@ experiences:
   start_date: January 2014
   end_date: December 2017
   summary: |
-        Made Bar backoffice main features
-        Worked on CI/CD
+        I developped Bar backoffice main features and
+        worked on CI/CD
   website: https://bar.net
   tags:
   - django
@@ -46,8 +46,8 @@ experiences:
   end_date: December 2013
   website: https://bar.net
   summary: |
-        Made multiple KPI dashboards
-        Provided automation scripts
+        I made multiple KPI dashboards and
+        provided automation scripts
 profiles:
 - network: Facebook
   url: https://facebook.com/johndoe

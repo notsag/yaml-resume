@@ -3,244 +3,500 @@
 	<head>
         <title>John Doe's resume</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <style type="text/css">
-            * { margin: 0; padding: 0; font-family: Roboto, sans-serif; font-size: 10pt; -webkit-print-color-adjust: exact; }
-			a {text-decoration: none; }
-			h1 { font-size: 18pt; line-height: 25pt; font-weight: 900; text-align: center; text-transform: uppercase; letter-spacing: .1em; margin-top: 2em; }
-			h2 { font-size: 14pt; line-height: 30pt; font-weight: 900; text-align: center; text-transform: uppercase; }
-			.page-wrap { width: 21cm; height: 29.68cm; display: block; background-color: #9e9e9e; }
-			.fa { font-size: 16pt; }
-			.left-col { width: 35%; height: 100%; float: left; background-color: #000; color: #fff; }
-			.pic { max-height: 300px; width: 100%; }
-			.left-section { display: inline-block; width: 100%; }
-			.left-section > h2 { margin-left: 20px; margin-top: 15px; text-align: left; color: #fff; }
-			.left-item { width: 100%; margin-top: 5px; margin-bottom: 5px; }
-			.material-icons { width:20%; text-align: center; margin-left: -10px; font-family: Material Icons, sans-serif; color: #9e9e9e; }
-			.left-item > .icon { width:20%; text-align: center; margin-left: -10px; font-family: Material Icons, sans-serif; color: #9e9e9e; }
-			.left-item > .content { width: 80%; margin-top: -20px; margin-left: 35px; color: #9e9e9e; }
-			.left-item > .content > a { color: #9e9e9e; }
-			.left-item > strong { line-height: 25px; margin-left: 10px; color: #9e9e9e; }
-			.tags { font-size: 9pt; color: #9e9e9e; padding-bottom: 5px; margin: 10px 0 -5px 5px; }
-			.gauge { height: 10px; margin-left: 10px; margin-right: 10px; background: #9e9e9e; -moz-border-radius: 25px; -webkit-border-radius: 25px;	border-radius: 25px; }
-			.gauge > span { display: block; height: 100%; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; background-color: #fff; }
-			.right-col { width: 63.5%; height: 100%; float: right; }
-			.title { padding-left: 20px; padding-top: 20px; }
-			.title > h2 { margin-top: 10px; margin-bottom: 2em; color: #fff; }
-			.right-section > h2 { text-align: left; margin-top: 1em; margin-left: 0.25em; color: #000; }
-			.right-section > .right-item { width: 90%; position: relative; background-color: #fff; padding: 20px 20px 15px 20px; margin-top: 5px; margin-bottom: 5px; display: inline-block; border-radius: 1em; -moz-border-radius: 1em; -webkit-border-radius: 1em; }
-			.headline { font-size: 12pt; font-weight: 300; margin-top: -5px; color: #000; }
-			.subheadline { color: #9e9e9e; margin-bottom: 10px; }
-			.right-item > .content > li { margin-left: 20px; }
-			.subheadline > a { color: #9e9e9e; }
-        </style>
+        <style type="text/css">* {
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+    -webkit-print-color-adjust: exact;
+}
+
+body {
+    background-color: #ccc;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    line-height: 37pt;
+    font-size: 22pt;
+    font-weight: 500;
+    margin: 0;
+}
+
+.title {
+    right: 25px;
+    padding-left: 20px;
+    padding-top: 10px;
+    bottom: 25px;
+    display: block;
+}
+
+.title h2 {
+    font-size: 1.4em;
+    line-height: 37pt;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-top: 0;
+    padding-top: 0;
+    color: rgba(0,0,0,.7);
+}
+
+.title div {
+    font-size: 10pt;
+    line-height: 15pt;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: rgba(63,61,60,.71);
+    display: block;
+    letter-spacing: 3px;
+    padding: 0;
+    opacity: .8;
+}
+
+.title job {
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.right-col .summary {
+    display: block;
+    margin-top: 8px;
+    font-weight: 375;
+    font-size: 16px;
+    color: rgba(0,0,0,.541176);
+}
+
+.page-wrap {
+    width: 21cm;
+    height: 29.68cm;
+    display: block;
+    background-color: #ccc;
+}
+
+.fa {
+    font-size: 16pt;
+}
+
+.left-col {
+    width: 35%;
+    height: 100%;
+    float: left;
+    background-color: #16151c;
+    color: hsla(0,0%,100%,.59);
+    text-align: left;
+}
+
+.pic {
+    max-height: 300px;
+    width: 100%;
+}
+
+.tags {
+    padding-bottom: 5px;
+    margin: 10px 0 -5px 5px;
+}
+
+.right-col {
+    width: 63.5%;
+    height: 100%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-headline {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-size: 10pt;
+    opacity: .8;
+    margin-left: 20px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #3f3d3c;
+}
+
+.right-col .block {
+    width: 90%;
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.right-col .experience {
+    margin-top: 40px;
+}
+
+.right-col .block .headline {
+    font-weight: 300;
+    display: block;
+    font-size: 15px;
+    color: rgba(0,0,0,.870588);
+}
+
+.right-col .block .subheadline,
+.right-col .block .tags,
+.right-col .block .subheadline a {
+    color: rgba(0,0,0,.541176);
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-family: Roboto,sans-serif;
+    font-weight: 300;
+    font-size: 10pt;
+    line-height: 17pt;
+}
+
+.right-col .block .content {
+    font-size: 14px;
+    color: rgba(0,0,0,.870588);
+    margin-bottom: 0;
+    padding-top: 20px;
+}
+
+.left-col .section-headline {
+    color: hsla(0,0%,100%,.54);
+}
+
+.left-col .item {
+    width: 100%;
+    margin-top: 13px;
+    float: left;
+}
+
+.left-col .item .icon {
+    width: 20%;
+    float: left;
+}
+
+.material-icons {
+    font-family: Material Icons;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga";
+}
+
+.left-col .item ..material-icons {
+    width:20%;
+    text-align: center;
+    margin-left: -10px;
+    font-family: Material Icons, sans-serif;
+}
+
+.left-col .item .fa,
+.left-col .item .material-icons {
+    display: inherit;
+    text-align: center;
+}
+
+.left-col .item .content {
+    float: right;
+    width: 69%;
+    padding-right: 10%;
+    padding-top: 0;
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.left-col .item .content a {
+    color: inherit;
+}
+
+.left-col .item span {
+    font-weight: 300;
+}
+
+.left-col .item .skill {
+    clear: both;
+    width: 97%;
+    padding-top: 4px;
+}
+
+.left-col .item .skill .right {
+    float: right;
+    width: 93%;
+}
+
+.left-col .item .skill .right .progress {
+    float: left;
+    position: relative;
+    height: 2px;
+    display: block;
+    width: 95%;
+    background-color: hsla(0,0%,100%,.19);
+    border-radius: 2px;
+    overflow: visible;
+    margin: .5rem 0 10px;
+}
+
+.left-col .item .skill span {
+    font-size: 13px;
+}
+
+.left-col .item .skill .right .progress .determinate {
+    background-color: #78909c;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.left-col .item .fa {
+    display: inherit;
+    text-align: center;
+}
+
+.left-col .item .skill .right .progress .determinate .fa {
+    font-size: 13px;
+    position: absolute;
+    top: -4px;
+    right: -2px;
+    margin-left: 50%;
+    color: #fff;
+}</style>
 	</head>
 	<body>
         <div class="page-wrap">
 			<div class="left-col">
 				<img src="../sample_id.png" alt="Photo" class="pic" />
-				<div class="left-section">
-					<h2>Contact</h2>
-					<ul>
-						<li class="left-item">
-							<div class="icon"><em class="material-icons">account_circle</em></div>
-							<div class="content">Born: 01/01/1990</div>
-						</li>
-						<li class="left-item">
-							<div class="icon"><em class="material-icons">location_city</em></div>
-							<div class=content>10 Downing Street<br/>
-								
-								SW1A 2AA
-								London<br/>
-								
-								UK
-								
-							</div>
-						</li>
-						<li class="left-item">
-							<div class="icon"><em class="material-icons">phone</em></div>
-							<div class="content">+44612345678</div>
-						</li>
-						<li class="left-item">
-							<div class="icon"><em class="material-icons">email</em></div>
-							<div class="content"><a href="mailto:john@doe.com">john@doe.com</a></div>
-						</li>
-						
-						<li class="left-item">
-							
-							<div class="icon"><em class="fa fa-facebook"></em></div>
-							
-							<div class="content"><a href="https://facebook.com/johndoe">https://facebook.com/johndoe</a></div>
-						</li>
-						
-						<li class="left-item">
-							
-							<div class="icon"><em class="fa fa-twitter"></em></div>
-							
-							<div class="content"><a href="https://twitter.com/nottherealjohndoe">https://twitter.com/nottherealjohndoe</a></div>
-						</li>
-						
-						<li class="left-item">
-							
-							<div class="icon"><em class="material-icons">language</em></div>
-							
-							<div class="content"><a href="https://john.doe.fake">https://john.doe.fake</a></div>
-						</li>
-						
-					</ul>
-				</div>
-				<div class="left-section">
-					<h2>Skills</h2>
-					
-					<div class="left-item">
-						<strong>Python</strong>
-						<div class="gauge">
-							<span style="width: 90%"></span>
-						</div>
-					</div>
-					
-					<div class="left-item">
-						<strong>Flask</strong>
-						<div class="gauge">
-							<span style="width: 80%"></span>
-						</div>
-					</div>
-					
-					<div class="left-item">
-						<strong>Scrum</strong>
-						<div class="gauge">
-							<span style="width: 80%"></span>
-						</div>
-					</div>
-					
-					<div class="left-item">
-						<strong>Java</strong>
-						<div class="gauge">
-							<span style="width: 50%"></span>
-						</div>
-					</div>
-					
-				</div>
-				<div class="left-section">
-					<h2>Languages</h2>
-					
-					<div class="left-item">
-						<strong>English: </strong>&nbsp Native language
-					</div>
-					
-					<div class="left-item">
-						<strong>French: </strong>&nbsp Proficient
-					</div>
-					
-				</div>
-				<div class="left-section">
-					<h2>Hobbies</h2>
-					
-					<div class="left-item">
-						<strong>History: </strong>&nbsp 
-					</div>
-					
-					<div class="left-item">
-						<strong>Sport: </strong>&nbsp Running and weightlifting
-					</div>
-					
-				</div>
-			</div>
+                <div class="section-headline">Contact</div>
+                <div class="item">
+                    <div class="icon"><em class="material-icons">account_circle</em></div>
+                    <div class="content">Born: 01/01/1990</div>
+                </div>
+                <div class="item">
+                    <div class="icon"><em class="material-icons">location_city</em></div>
+                    <div class=content>10 Downing Street<br/>
+                        
+                        SW1A 2AA
+                        London<br/>
+                        
+                        UK
+                        
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="icon"><em class="material-icons">phone</em></div>
+                    <div class="content">+44612345678</div>
+                </div>
+                <div class="item">
+                    <div class="icon"><em class="material-icons">email</em></div>
+                    <div class="content">
+                        <a href="john@doe.com">john@doe.com</a>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    
+                    <div class="icon"><em class="fa fa-facebook"></em></div>
+                    
+                    <div class="content"><a href="https://facebook.com/johndoe">https://facebook.com/johndoe</a></div>
+                </div>
+                
+                <div class="item">
+                    
+                    <div class="icon"><em class="fa fa-twitter"></em></div>
+                    
+                    <div class="content"><a href="https://twitter.com/nottherealjohndoe">https://twitter.com/nottherealjohndoe</a></div>
+                </div>
+                
+                <div class="item">
+                    
+                    <div class="icon"><em class="material-icons">language</em></div>
+                    
+                    <div class="content"><a href="https://john.doe.fake">https://john.doe.fake</a></div>
+                </div>
+                
+                <div class="item">
+                    <div class="section-headline">Skills</div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <span>Python</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: 90%">
+                                    <em class="fa fa-circle"></em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <span>Flask</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: 80%">
+                                    <em class="fa fa-circle"></em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <span>Scrum</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: 80%">
+                                    <em class="fa fa-circle"></em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <span>Java</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: 50%">
+                                    <em class="fa fa-circle"></em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+               </div>
+               <div class="item">
+                    <div class="section-headline">Languages</div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <strong>English: </strong><span>&nbsp Native language</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <strong>French: </strong><span>&nbsp Proficient</span>
+                        </div>
+                    </div>
+                    
+                </div>
+               <div class="item">
+                    <div class="section-headline">Hobbies</div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <strong>History</strong><span>&nbsp </span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="right">
+                            <strong>Sport</strong><span>&nbsp Running and weightlifting</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
 			<div class="right-col">
 				<div class="title">
-					<h1>John Doe</h1>
-					<h2>Python Developer</h2>
+					<h2>John Doe</h2>
+					<div class="job">Python Developer</div>
+					<span class="summary">Hi, my name is John and I&#39;m a Python dev since 2012.
+Please hire me!
+</span>
 				</div>
-				<div class="right-section">
-					<h2>Experiences</h2>
-					
-					<div class="right-item">
-						<div class="headline">Senior Python Developer - Foo company</div>
-						<div class="subheadline">
-						January 2018 - Today
-						</div>
-						<ul class="content">
-							
-							<li>Developer for the main Foo webapp</li>
-							
-							<li>Worked on migration from python 2.7 to 3.6</li>
-							
-							<li>Scrum master for the team of 8 people</li>
-							
-							<li>Added automated unit tests</li>
-							
-						</ul>
-						
-						<div class="tags">
-							- flask - mongodb - redis - pytest - scrum -
-						</div>
-						
-					</div>
-					
-					<div class="right-item">
-						<div class="headline">Python developer - Bar company</div>
-						<div class="subheadline">
-						January 2014 - December 2017
-						</div>
-						<ul class="content">
-							
-							<li>Made Bar backoffice main features</li>
-							
-							<li>Worked on CI/CD</li>
-							
-						</ul>
-						
-						<div class="tags">
-							- django - mysql - jenkins -
-						</div>
-						
-					</div>
-					
-					<div class="right-item">
-						<div class="headline">Junior python developer - Bar company</div>
-						<div class="subheadline">
-						January 2012 - December 2013
-						</div>
-						<ul class="content">
-							
-							<li>Made multiple KPI dashboards</li>
-							
-							<li>Provided automation scripts</li>
-							
-						</ul>
-						
-					</div>
-					
-				</div>
-				<div class="right-section">
-					<h2>Education</h2>
-					
-					<div class="right-item">
-						<div class="headline">Bachelor of Software Engineering</div>
-						<div class="subheadline">
-						January 2008 - January 2012
-						</div>
-						<div class="content">
-						University of California, Berkeley
-						</div>
-					</div>
-					
-				</div>
+                <div class="section-headline experience">Experiences</div>
+                
+                <div class="block">
+                    <h3 class="headline">Senior Python Developer - Foo company</h3>
+                    <div class="subheadline">
+                        
+                            Since January 2018
+                        
+                    </div>
+                    <p class="content">Developer for the main Foo webapp.
+I also worked on migration from python 2.7 to 3.6.
+I&#39;ve been scrum master for a team of 8 people.
+I added automated unit tests to the codebase.
+</p>
+                    
+                    <div class="tags">
+                        - flask - mongodb - redis - pytest - scrum -
+                    </div>
+                    
+                </div>
+                
+                <div class="block">
+                    <h3 class="headline">Python developer - Bar company</h3>
+                    <div class="subheadline">
+                        
+                            January 2014 - December 2017
+                        
+                    </div>
+                    <p class="content">I developped Bar backoffice main features and
+worked on CI/CD
+</p>
+                    
+                    <div class="tags">
+                        - django - mysql - jenkins -
+                    </div>
+                    
+                </div>
+                
+                <div class="block">
+                    <h3 class="headline">Junior python developer - Bar company</h3>
+                    <div class="subheadline">
+                        
+                            January 2012 - December 2013
+                        
+                    </div>
+                    <p class="content">I made multiple KPI dashboards and
+provided automation scripts
+</p>
+                    
+                </div>
+                
+                <div class=section-headline>Education</div>
+                
+                <div class="block">
+                    <h3 class="headline">Bachelor of Software Engineering</h3>
+                    <div class="subheadline">
+                    January 2008 - January 2012
+                    </div>
+                    <div class="content">
+                    University of California, Berkeley
+                    </div>
+                </div>
+                
 				
-				<div class="right-section">
-					<h2>Projects</h2>
-					
-					<div class="right-item">
-						<div class="headline">foo.bar</div>
-						<div class="subheadline">
-							<a href="https://github.com/johndoe/foo.bar">https://github.com/johndoe/foo.bar</a>
-						</div>
-						<div class="content">
-						Just an useless app
-						</div>
-					
-				</div>
+                <div class="section-headline">Projects</div>
+                
+                <div class="block">
+                    <h3 class="headline">foo.bar</h3>
+                    <div class="subheadline">
+                        <a href="https://github.com/johndoe/foo.bar">https://github.com/johndoe/foo.bar</a>
+                    </div>
+                    <div class="content">
+                    Just an useless app
+                    </div>
+                </div>
+                
 				
 			</div>
     	</div>
