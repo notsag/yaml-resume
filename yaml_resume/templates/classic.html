@@ -46,7 +46,10 @@
 			{% for s in resume.skills %}
 			<dd class="item">
 				<h2>{{ s.name }}
-				<span class="subtitle">{% for i in range(10) %}{% if i < s.level|int//10 %}&#x2605;{% else %}&#x2606;{% endif %}{% endfor %}</span></h2>
+                {% if s.level %}
+				<span class="subtitle">{% for i in range(10) %}{% if i < s.level|int//10 %}&#x2605;{% else %}&#x2606;{% endif %}{% endfor %}</span>
+                {% endif %}
+                </h2>
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
