@@ -26,6 +26,7 @@ h2 {
     padding-top: 10px;
     bottom: 25px;
     display: block;
+    width: 90%;
 }
 
 .title h2 {
@@ -93,8 +94,6 @@ h2 {
     width: 63.5%;
     height: 100%;
     float: right;
-    display: flex;
-    flex-direction: column;
 }
 
 .section-headline {
