@@ -58,7 +58,7 @@ To test development version without installing :
 ```
 # To install dependencies
 python3 -m pip install -r requirements.txt
-python3 -m pip install pytest pytest-cov flake8 black pre-commit
+python3 -m pip install pytest pytest-cov black pre-commit
 
 # To run the cli
 python3 -m yaml_resume
