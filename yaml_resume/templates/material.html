@@ -68,6 +68,7 @@
                     </div>
                     {% endfor %}
                </div>
+               {% if resume.languages %}
                <div class="item">
                     <div class="section-headline">Languages</div>
                     {% for l in resume.languages %}
@@ -78,6 +79,8 @@
                     </div>
                     {% endfor %}
                 </div>
+                {% endif %}
+                {% if resume.hobbies %}
                <div class="item">
                     <div class="section-headline">Hobbies</div>
                     {% for h in resume.hobbies %}
@@ -88,6 +91,7 @@
                     </div>
                     {% endfor %}
                 </div>
+                {% endif %}
             </div>
 			<div class="right-col">
 				<div class="title">

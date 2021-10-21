@@ -53,6 +53,7 @@
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
+      {% if resume.languages %}
 			<dt>Languages</dt>
 			{% for l in resume.languages %}
 			<dd class="item">
@@ -60,6 +61,7 @@
 			</dd>
 			{% endfor %}
 			<dd class="clear"></dd>
+      {% endif %}
 			{% if resume.projects %}
 			<dt>Projects</dt>
 			{% for p in resume.projects %}
@@ -70,13 +72,15 @@
 			{% endfor %}
 			<dd class="clear"></dd>
 			{% endif %}
+      {% if resume.hobbies %}
 			<dt>Hobbies</dt>
 			{% for h in resume.hobbies %}
 			<dd class="item">
 				<h2>{{ h.name }}<span class="subtitle">{{ h.details }}</span></h2>
 			</dd>
 			{% endfor %}
-			<dd class="clear"></dd>
+			<dd class="clear"></dd>A
+      {% endif %}
         </dl>
         <div class="clear"></div>
         </div>
