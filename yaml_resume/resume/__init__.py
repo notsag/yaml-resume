@@ -76,6 +76,8 @@ class Resume(yaml.YAMLObject):
         if click.confirm("Do you want to add a Projects section?", default=False):
             print("## Projects ##")
             projects = Project.ask()
+        else:
+            projects = []
         print("## Hobbies ##")
         hobbies = Hobby.ask()
         return Resume(
