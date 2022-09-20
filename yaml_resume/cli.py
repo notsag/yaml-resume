@@ -9,8 +9,13 @@ from .resume import Resume
 THEMES = {
     "classic": "optional",
     "material": "mandatory",
+    "modern": "optional"
 }  # optional or mandatory depending if the theme must have an profile picture
 
+PAGE_FORMATS = {
+    "A4": "@page { size: A4; margin: 0cm }",
+    "US_Letter": "@page { size: letter; margin: .5in }" 
+}
 
 def no_tag(self, *args, **kw):
     """Drop tag in yaml.dump()
@@ -106,7 +111,14 @@ def validate(filename):
 )
 @click.option("-i", "--image", default=None, help="Portrait to include in the resume.")
 @click.option("-o", "--output", default="resume", help="Name of the file to write.")
-def export(filename, theme, extension, image, output):
+@click.option(
+    "-pt",
+    "--page-type",
+    default="A4",
+    type=click.Choice(PAGE_FORMATS),
+    help="Page Type: A4 or 8.5\"x11\""
+)
+def export(filename, theme, extension, image, output, page_type):
     """cli subcommand to export a YAML resume to HTML or PDF
 
     This function is a subcommand of yaml-resume.
@@ -117,7 +129,13 @@ def export(filename, theme, extension, image, output):
     :type filename: str
     :param theme: The name of the theme to use.
     :type theme: str
-    :param format: The format of the exported data.
+    :param extension: The format of the exported data.
+    :type format: str
+    :param image: Path to Resume Image
+    :type format: str
+    :param output: Output filename
+    :type format: str
+    :param page: Page Type
     :type format: str
     :raises: ClickException
 
@@ -146,7 +164,7 @@ def export(filename, theme, extension, image, output):
             outfile.close()
         else:
             html = HTML(string=template.render(resume=resume, image=image))
-            css = CSS(string="@page { size: A4; margin: 0cm }")
+            css = CSS(string=PAGE_FORMATS[page_type])
             html.write_pdf("{}.{}".format(output, extension), stylesheets=[css])
 
 

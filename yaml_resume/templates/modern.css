@@ -1,0 +1,48 @@
+* {
+    font-family: Montserrat;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+
+.header h1,h2 {
+    display: block;
+}
+
+.header h2 {
+    font-weight: 200;
+}
+
+.details {
+    text-align: center;
+}
+
+.details ul > li {
+    display: inline-block
+}
+
+.details li:not(:first-child)::before {
+    content: '| '
+}
+
+h3 .date {
+    font-weight: 100;
+}
+
+.experience h4 {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.education h4 {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.tags { 
+    font-size: 10pt;
+    color: #999;
+    padding-bottom: 5px;
+}

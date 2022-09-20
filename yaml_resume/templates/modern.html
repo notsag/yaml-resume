@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>{{ resume.contact.name }}'s Resume</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+        <link href="modern.css" rel="stylesheet">
+        <style type="text/css">{% include "modern.css" %}</style>
+	</head>
+    <body>
+        <div class="header">
+            <h1>{{ resume.contact.name }}</h1>
+            <h2>{{ resume.contact.job }}</h2>
+        </div>
+        <hr>
+        <div class="details">
+            <ul>
+                <li>{{ resume.contact.phone }}</li>
+                <li>{{ resume.contact.email }}</li>
+                <li>{{ resume.contact.location.address }}, {{ resume.contact.location.city }}{% if resume.contact.location.zip %}, {{ resume.contact.location.zip }}{% endif %}{% if resume.contact.location.country %}, {{ resume.contact.location.country }}{% endif %}</li>
+            </ul>
+            <ul>
+                {% for p in resume.profiles %}
+                <li>{{ p.network }}: <a href="{{ p.url }}">{{ p.url }}</a></li>
+                {% endfor %}
+            </ul>
+            {% if resume.contact.summary %}
+            <b>{{ resume.contact.summary }}</b>
+            {% endif %}
+        </div>
+        <br>
+        <div>
+            <h2>Experience</h2>
+            {% for e in resume.experiences %}
+            <div class="experience">
+                <h3>{{ e.company }} | <span class="date">{{ e.start_date }} - {% if not e.end_date %}Present{% else %}{{ e.end_date }}{% endif %}</span></h3>
+                <h4>{{ e.position }}</h4>
+                <ul>{% for line in e.summary.split('\n')[:-1] %}<li>{{ line }}</li>{% endfor %}</ul>
+                {% if e.tags %}<div class="tags">-{% for tag in e.tags %} {{ tag }} -{% endfor %}</div>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            <h2>Education</h2>
+            {% for e in resume.education %}
+            <div class="education">
+                <h3>{{ e.institution }} | <span class="date">{{ e.start_date }} - {% if not e.end_date %}Present{% else %}{{ e.end_date }}{% endif %}</span></h3>
+                <h4>{{ e.degree }}</h4>
+            </div>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            <h2>Skills</h2>
+            {% if resume.skills|selectattr('level', 'gt', 50)|list|length %}
+            <h4>Proficient</h4>
+            <ul>
+                {% for s in resume.skills|selectattr('level', 'gt', 50)|sort(attribute='level') %}
+                <li>{{ s.name }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if resume.skills|selectattr('level', 'le', 50)|list|length %}
+            <h4>Known</h4>
+            <ul>
+                {% for s in resume.skills|selectattr('level', 'le', 50)|sort(attribute='level') %}
+                <li>{{ s.name }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <br>
+    </body>
+</html>
