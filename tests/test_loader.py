@@ -1,4 +1,5 @@
 import yaml
+from unittest.mock import patch
 from yaml_resume import Resume
 from yaml_resume.resume.contact import Location, Contact
 from yaml_resume.resume.profile import Profile
@@ -109,3 +110,28 @@ def test_load_hobbies():
 def test_load_resume():
     resume = Resume.load(data)
     assert isinstance(resume, Resume)
+
+
+def _ask_prompt_stub(text, default="", **kwargs):
+    if "Summary" in text:
+        return ""
+    if "Level" in text:
+        return "50"
+    return "x"
+
+
+def _ask_confirm_skip_projects(text, default=None):
+    if text == "Do you want to add a Projects section?":
+        return False
+    if text.startswith("Add a new"):
+        return False
+    return True
+
+
+def test_ask_without_projects_section():
+    """Declining the optional Projects section yields [], not UnboundLocalError."""
+    with patch("click.prompt", side_effect=_ask_prompt_stub):
+        with patch("click.confirm", side_effect=_ask_confirm_skip_projects):
+            resume = Resume.ask()
+    assert isinstance(resume, Resume)
+    assert resume.projects == []
